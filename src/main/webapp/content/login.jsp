@@ -1,0 +1,322 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: USER
+  Date: 2024-04-06
+  Time: 오후 2:05
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Bootstrap 5.3.0 Navbar Multi Level and Mega Menu</title>
+    <link rel="stylesheet" href="../css/carousel.css">
+    <link rel='stylesheet'
+          href='../css/bootstrap/bootstrap.css'>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!--
+(c) 2020-2023 by Simon Köhler
+simonkoehler.com
+Last Update: August 13 2023 11:48 am, Panama
+-->
+<%--Nav--%>
+<nav class="navbar navbar-expand-lg shadow sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Bootstrap <span
+                class="badge bg-primary fw-bold">version 5.3.0</span></a>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbar-content">
+            <div class="hamburger-toggle">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                       data-bs-auto-close="outside">Multilevel</a>
+                    <ul class="dropdown-menu shadow">
+                        <li><a class="dropdown-item" href="#">Gallery</a></li>
+                        <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                        <li class="dropstart">
+                            <a href="#" class="dropdown-item dropdown-toggle"
+                               data-bs-toggle="dropdown">Submenu
+                                Left</a>
+                            <ul class="dropdown-menu shadow">
+                                <li><a class="dropdown-item" href=""> Third level 1</a></li>
+                                <li><a class="dropdown-item" href=""> Third level 2</a></li>
+                                <li><a class="dropdown-item" href=""> Third level 3</a></li>
+                                <li><a class="dropdown-item" href=""> Third level 4</a></li>
+                                <li><a class="dropdown-item" href=""> Third level 5</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropend">
+                            <a href="#" class="dropdown-item dropdown-toggle"
+                               data-bs-toggle="dropdown"
+                               data-bs-auto-close="outside">Submenu Right</a>
+                            <ul class="dropdown-menu shadow">
+                                <li><a class="dropdown-item" href=""> Second level 1</a></li>
+                                <li><a class="dropdown-item" href=""> Second level 2</a></li>
+                                <li><a class="dropdown-item" href=""> Second level 3</a></li>
+                                <li class="dropend">
+                                    <a href="#" class="dropdown-item dropdown-toggle"
+                                       data-bs-toggle="dropdown"
+                                       data-bs-auto-close="outside">Let's go deeper!</a>
+                                    <ul class="dropdown-menu dropdown-submenu shadow">
+                                        <li><a class="dropdown-item" href=""> Third level 1</a></li>
+                                        <li><a class="dropdown-item" href=""> Third level 2</a></li>
+                                        <li><a class="dropdown-item" href=""> Third level 3</a></li>
+                                        <li><a class="dropdown-item" href=""> Third level 4</a></li>
+                                        <li class="dropend">
+                                            <a href="#" class="dropdown-item dropdown-toggle"
+                                               data-bs-toggle="dropdown">Still
+                                                don't have enough? Go much deeper!</a>
+                                            <ul class="dropdown-menu dropdown-submenu shadow">
+                                                <li><a class="dropdown-item" href=""> Third level
+                                                    1</a></li>
+                                                <li><a class="dropdown-item" href=""> Third level
+                                                    2</a></li>
+                                                <li><a class="dropdown-item" href=""> Third level
+                                                    3</a></li>
+                                                <li><a class="dropdown-item" href=""> Third level
+                                                    4</a></li>
+                                                <li><a class="dropdown-item" href=""> Third level
+                                                    5</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href=""> Third level 5</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown dropdown-mega position-static">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                       data-bs-auto-close="outside">Megamenu</a>
+                    <div class="dropdown-menu shadow">
+                        <div class="mega-content px-4">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12 col-sm-4 col-md-3 py-4">
+                                        <h5>Pages</h5>
+                                        <div class="list-group">
+                                            <a class="list-group-item" href="#">Accomodations</a>
+                                            <a class="list-group-item" href="#">Terms &
+                                                Conditions</a>
+                                            <a class="list-group-item" href="#">Privacy</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-3 py-4">
+                                        <h5>Card</h5>
+                                        <div class="card">
+                                            <img src="https://via.placeholder.com/320x180"
+                                                 class="img-fluid" alt="image">
+                                            <div class="card-body">
+                                                <p class="card-text">Some quick example text to
+                                                    build on the card title and
+                                                    make up the bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-3 py-4">
+                                        <h5>Lot of Pages</h5>
+                                        <p>Lorem ipsum dolo sit achmet muhamed borlan de irtka.
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-3 py-4">
+                                        <h5>Damn, so many</h5>
+                                        <div class="list-group">
+                                            <a class="list-group-item" href="#">Accomodations</a>
+                                            <a class="list-group-item" href="#">Terms &
+                                                Conditions</a>
+                                            <a class="list-group-item" href="#">Privacy</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropdown-mega position-static">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                       data-bs-auto-close="outside">Megamenu</a>
+                    <div class="dropdown-menu shadow">
+                        <div class="mega-content px-4">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12 col-sm-4 col-md-3 py-4">
+                                        <h5>Pages</h5>
+                                        <div class="list-group">
+                                            <a class="list-group-item" href="#">Accomodations</a>
+                                            <a class="list-group-item" href="#">Terms &
+                                                Conditions</a>
+                                            <a class="list-group-item" href="#">Privacy</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-3 py-4">
+                                        <h5>Card</h5>
+                                        <div class="card">
+                                            <img src="https://via.placeholder.com/320x180"
+                                                 class="img-fluid" alt="image">
+                                            <div class="card-body">
+                                                <p class="card-text">Some quick example text to
+                                                    build on the card title and
+                                                    make up the bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-3 py-4">
+                                        <h5>Lot of Pages</h5>
+                                        <p>Lorem ipsum dolo sit achmet muhamed borlan de irtka.
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-3 py-4">
+                                        <h5>Damn, so many</h5>
+                                        <div class="list-group">
+                                            <a class="list-group-item" href="#">Accomodations</a>
+                                            <a class="list-group-item" href="#">Terms &
+                                                Conditions</a>
+                                            <a class="list-group-item" href="#">Privacy</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-theme">
+                    <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
+                       aria-disabled="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                             fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-user">
+                    <a class="nav-link icons" href="login.jsp" tabindex="-1"
+                       data-bs-toggle-theme="true"
+                       aria-disabled="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                             fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path fill-rule="evenodd"
+                                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-cart">
+                    <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
+                       aria-disabled="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                             fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<%--Nav--%>
+
+<%--Footer--%>
+<div class="container">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+        <div class="col mb-3">
+            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+            <p class="text-muted">© 2023 SHIN YUN SEOP All rights reserve</p>
+        </div>
+
+        <div class="col mb-3">
+
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="content/home.jsp"
+                                             class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="content/features.jsp"
+                                             class="nav-link p-0 text-muted">Features</a>
+                </li>
+                <li class="nav-item mb-2"><a href="content/pricing.jsp"
+                                             class="nav-link p-0 text-muted">Pricing</a>
+                </li>
+                <li class="nav-item mb-2"><a href="content/faqs.jsp"
+                                             class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="content/about.jsp"
+                                             class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="content/home.jsp"
+                                             class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="content/features.jsp"
+                                             class="nav-link p-0 text-muted">Features</a>
+                </li>
+                <li class="nav-item mb-2"><a href="content/pricing.jsp"
+                                             class="nav-link p-0 text-muted">Pricing</a>
+                </li>
+                <li class="nav-item mb-2"><a href="content/faqs.jsp"
+                                             class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="content/about.jsp"
+                                             class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="content/home.jsp"
+                                             class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="content/features.jsp"
+                                             class="nav-link p-0 text-muted">Features</a>
+                </li>
+                <li class="nav-item mb-2"><a href="content/pricing.jsp"
+                                             class="nav-link p-0 text-muted">Pricing</a>
+                </li>
+                <li class="nav-item mb-2"><a href="content/faqs.jsp"
+                                             class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="content/about.jsp"
+                                             class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<%--Footer--%>
+<!-- partial -->
+<script
+        src='../js/bootstrap.bundle.min.js'></script>
+<script src="../js/day-night.js"></script>
+
+</body>
+</html>
