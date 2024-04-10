@@ -9,13 +9,27 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - Bootstrap 5.3.0 Navbar Multi Level and Mega Menu</title>
-    <link rel="stylesheet" href="../css/carousel.css">
-    <link rel='stylesheet'
-          href='../css/bootstrap/bootstrap.css'>
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/fonts.css">
+    <title>Drips</title>
+    <%--API--%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
+    <%--Styles--%>
+    <link rel="stylesheet" href="../css/carousel.css">
+    <link rel='stylesheet' href='../css/bootstrap/bootstrap.css'>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/index-page.css">
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+            rel="stylesheet"
+    />
+
+    <%--Fonts--%>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -25,9 +39,9 @@ simonkoehler.com
 Last Update: August 13 2023 11:48 am, Panama
 -->
 <%--Nav--%>
-<nav class="navbar navbar-expand-lg shadow sticky-top">
+<nav class="navbar navbar-expand-lg shadow sticky-top shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Bootstrap <span
+        <a class="navbar-brand" href="./index.jsp">Drips<span
                 class="badge bg-primary fw-bold">version 5.3.0</span></a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbar-content">
@@ -40,9 +54,94 @@ Last Update: August 13 2023 11:48 am, Panama
             </div>
         </button>
         <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <ul class="navbar-nav nav-underline mr-auto mb-2 mb-lg-0 ">
+                <li class="nav-item dropdown dropdown-mega position-static">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                       data-bs-auto-close="outside">Roasters</a>
+                    <div class="dropdown-menu shadow">
+                        <div class="mega-content px-4">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12 col-sm-4 col-md-3 py-4">
+                                        <div class="card">
+                                            <img src="../images/lowkey_logo.jpg"
+                                                 class="img-fluid" alt="image">
+                                            <div class="card-body">
+                                                <figure>
+                                                    <blockquote class="blockquote text-center py-2">
+                                                        <p>lowkey</p>
+                                                    </blockquote>
+                                                    <figcaption
+                                                            class="blockquote-footer text-center">
+                                                        서울특별시 성동구 연무장3길 6 <br>
+                                                        <a href="lowkey.jsp"
+                                                           class="stretched-link"></a>
+                                                    </figcaption>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-3 py-4">
+                                        <div class="card">
+                                            <img src="../images/pastel_coffee_works_logo.jpg"
+                                                 class="img-fluid" alt="image">
+                                            <div class="card-body">
+                                                <figure>
+                                                    <blockquote class="blockquote text-center py-2">
+                                                        <p>Pastel Coffee Works</p>
+                                                    </blockquote>
+                                                    <figcaption
+                                                            class="blockquote-footer text-center">
+                                                        서울특별시 마포구 성지길 58 1층
+                                                        <a href="pastelCoffeeWorks.jsp"
+                                                           class="stretched-link"></a>
+                                                    </figcaption>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-3 py-4">
+                                        <div class="card">
+                                            <img src="../images/peer_coffee_logo.jpg"
+                                                 class="img-fluid" alt="image">
+                                            <div class="card-body">
+                                                <figure>
+                                                    <blockquote class="blockquote text-center py-2">
+                                                        <p>Peer Coffee</p>
+                                                    </blockquote>
+                                                    <figcaption
+                                                            class="blockquote-footer text-center">
+                                                        서울특별시 성동구 연무장3길 6
+                                                        <a href="peerCoffee.jsp"
+                                                           class="stretched-link"></a>
+                                                    </figcaption>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-3 py-4">
+                                        <div class="card">
+                                            <img src="../images/coffee_heureum_logo.jpg"
+                                                 class="img-fluid" alt="image">
+                                            <div class="card-body">
+                                                <figure>
+                                                    <blockquote class="blockquote text-center py-2">
+                                                        <p>커피흐름</p>
+                                                    </blockquote>
+                                                    <figcaption
+                                                            class="blockquote-footer text-center">
+                                                        경기도 수원시 영통구 하동 975-2
+                                                        <a href="coffeeHeureum.jsp"
+                                                           class="stretched-link"></a>
+                                                    </figcaption>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
@@ -173,7 +272,6 @@ Last Update: August 13 2023 11:48 am, Panama
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Card</h5>
                                         <div class="card">
                                             <img src="https://via.placeholder.com/320x180"
                                                  class="img-fluid" alt="image">
@@ -216,6 +314,8 @@ Last Update: August 13 2023 11:48 am, Panama
                 <li class="nav-user">
                     <a class="nav-link icons" href="login.jsp" tabindex="-1"
                        data-bs-toggle-theme="true"
+                       data-bs-toggle="tooltip" data-bs-placement="bottom"
+                       data-bs-title="Login"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -240,6 +340,84 @@ Last Update: August 13 2023 11:48 am, Panama
     </div>
 </nav>
 <%--Nav--%>
+
+
+<%--Swiper--%> <%--슬라이드 포기하고 gif 로 갑시다--%>
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper" style="z-index: 1">
+        <div class="row d-flex justify-content-center align-items-center h-100 position-absolute">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mb-md-5 mt-md-4 pb-5">
+
+                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                            <p class="text-white-50 mb-5">Please enter your login and password!</p>
+
+                            <div class="form-outline form-white mb-4">
+                                <input type="email" id="typeEmailX"
+                                       class="form-control form-control-lg"/>
+                                <label class="form-label" for="typeEmailX">Email</label>
+                            </div>
+
+                            <div class="form-outline form-white mb-4">
+                                <input type="password" id="typePasswordX"
+                                       class="form-control form-control-lg"/>
+                                <label class="form-label" for="typePasswordX">Password</label>
+                            </div>
+
+                            <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot
+                                password?</a></p>
+
+                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Login
+                            </button>
+
+                            <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                                <a href="#!" class="text-white"><i
+                                        class="fab fa-facebook-f fa-lg"></i></a>
+                                <a href="#!" class="text-white"><i
+                                        class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <p class="mb-0">Don't have an account? <a href="#!"
+                                                                      class="text-white-50 fw-bold">Sign
+                                Up</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <img src="../images/peer_coffee_swiper.jpg">
+        </div>
+        <div class="swiper-slide">
+            <img src="../images/lowkey_swiper.jpg">
+        </div>
+        <div class="swiper-slide">
+            <img src="../images/coffee_heureum_swiper.jpeg">
+        </div>
+        <div class="swiper-slide">
+            <img src="../images/pastel_coffee_works_swiper.jpg">
+        </div>
+    </div>
+    <div class="autoplay-progress">
+        <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20"></circle>
+        </svg>
+        <span></span>
+    </div>
+
+</div>
+
+<%--Swiper--%>
+
 
 <%--Footer--%>
 <div class="container">
@@ -313,10 +491,15 @@ Last Update: August 13 2023 11:48 am, Panama
     </footer>
 </div>
 <%--Footer--%>
-<!-- partial -->
-<script
-        src='../js/bootstrap.bundle.min.js'></script>
+<%--Script--%>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src='../js/bootstrap.bundle.min.js'></script>
 <script src="../js/day-night.js"></script>
-
+<script src="../js/swiper.js"></script>
+<!-- MDB -->
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+></script>
 </body>
 </html>

@@ -3,6 +3,7 @@ const progressContent = document.querySelector(".autoplay-progress span");
 var swiper = new Swiper(".mySwiper", {
   spaceBetween: 30,
   centeredSlides: true,
+  effect: "card",
   autoplay: {
     delay: 2500,
     disableOnInteraction: false
@@ -20,5 +21,5 @@ var swiper = new Swiper(".mySwiper", {
       progressCircle.style.setProperty("--progress", 1 - progress);
       progressContent.textContent = `${Math.ceil(time / 1000)}s`;
     }
-  }
+  },
 });

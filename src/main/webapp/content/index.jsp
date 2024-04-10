@@ -19,6 +19,7 @@
     <link rel='stylesheet' href='../css/bootstrap/bootstrap.css'>
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/index-page.css">
+    <link rel="stylesheet" href="../css/theme.css">
 
 
     <%--Fonts--%>
@@ -34,7 +35,7 @@
 <%--Nav--%>
 <nav class="navbar navbar-expand-lg shadow sticky-top ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Drips<span
+        <a class="navbar-brand" href="./index.jsp">Drips<span
                 class="badge bg-primary fw-bold">version 5.3.0</span></a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbar-content">
@@ -49,7 +50,7 @@
         <div class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav nav-underline mr-auto mb-2 mb-lg-0 ">
                 <li class="nav-item dropdown dropdown-mega position-static">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown"
                        data-bs-auto-close="outside">Roasters</a>
                     <div class="dropdown-menu shadow">
                         <div class="mega-content px-4">
@@ -58,7 +59,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/lowkey_logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top " alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -77,7 +78,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/pastel_coffee_works_logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -96,7 +97,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/peer_coffee_logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -115,7 +116,7 @@
                                     <div class="col-12 col-sm-12 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/coffee_heureum_logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -335,7 +336,6 @@
 <%--Nav--%>
 
 <%--Swiper--%>
-<!-- Slider main container -->
 <div class="swiper mySwiper">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -361,8 +361,7 @@
         <span></span>
     </div>
 </div>
-
-<%--Carousel--%>
+<%--Swiper--%>
 
 <%--SESONAL--%>
 <div class="pd container-fluid">
@@ -721,12 +720,12 @@
     </footer>
 </div>
 <%--Footer--%>
-<!-- partial -->
+<!-- Script -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <script src="../js/day-night.js"></script>
+<script src="../js/navbar.js"></script>
 <script src="../js/swiper.js"></script>
-</div>
 </body>
 </html>
 

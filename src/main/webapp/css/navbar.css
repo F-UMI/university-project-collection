@@ -117,3 +117,11 @@
   color: white;
   text-shadow: 0 0 30px white;
 }
+.navbar {
+  transition: all 0.5s;
+}
+
+.navbar-scrolled {
+  background-color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
