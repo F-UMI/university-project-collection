@@ -35,8 +35,9 @@
 <%--Nav--%>
 <nav class="navbar navbar-expand-lg shadow sticky-top ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="./index.jsp">Drips<span
-                class="badge bg-primary fw-bold">version 5.3.0</span></a>
+        <a class="navbar-brand" href="./index.jsp">
+            <img src="../images/logo.png" alt="Drips" width="64" height="60">
+        </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbar-content">
             <div class="hamburger-toggle">
@@ -546,7 +547,7 @@
                 다양한 로스터리가 제공하는 드립백을 골라보세요. <br>
                 집이나 사무실에 두거나, 선물하기도 좋습니다.
             </p>
-            <button class="btn ms-5"><span>Hover me!</span></button>
+            <button class="custom-btn ms-5"><span>Hover me!</span></button>
         </div>
     </div>
     <%--DripBag--%>

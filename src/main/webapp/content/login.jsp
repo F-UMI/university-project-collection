@@ -41,8 +41,9 @@ Last Update: August 13 2023 11:48 am, Panama
 <%--Nav--%>
 <nav class="navbar navbar-expand-lg shadow sticky-top shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand" href="./index.jsp">Drips<span
-                class="badge bg-primary fw-bold">version 5.3.0</span></a>
+        <a class="navbar-brand" href="./index.jsp">
+            <img src="../images/logo.png" alt="Drips" width="64" height="60">
+        </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbar-content">
             <div class="hamburger-toggle">
@@ -341,82 +342,96 @@ Last Update: August 13 2023 11:48 am, Panama
 </nav>
 <%--Nav--%>
 
+<%--로그인 입력 폼을 가운데 위치하게하고 백그라운드 처리하면 될거 같은데 한번 보자고--%>
 
-<%--Swiper--%> <%--슬라이드 포기하고 gif 로 갑시다--%>
-<div class="swiper mySwiper">
-    <div class="swiper-wrapper" style="z-index: 1">
-        <div class="row d-flex justify-content-center align-items-center h-100 position-absolute">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card bg-dark text-white" style="border-radius: 1rem;">
-                    <div class="card-body p-5 text-center">
+<!-- Section: Design Block -->
+<section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+        background-image: url('../images/lowkey_swiper.jpg');
+        height: 92.5%;
+        "></div>
+    <!-- Background image -->
 
-                        <div class="mb-md-5 mt-md-4 pb-5">
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -42%;
+        background: hsla(0, 0%, 100%, 0.2);
+        backdrop-filter: blur(30px);
+        ">
+        <div class="card-body py-5 px-md-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-5">- Login -</h2>
+                    <form class="needs-validation" novalidate>
+                        <!-- Email input -->
+                        <div data-mdb-input-init class="form-outline mb-5">
+                            <input type="text" id="loginId" class="form-control" required/>
+                            <label class="form-label" for="loginId">ID</label>
+                            <div class="invalid-feedback">ID를 입력해주세요</div>
+                        </div>
+                        <!-- Password input -->
+                        <div data-mdb-input-init class="form-outline mb-5">
+                            <input type="password" id="loginPassword" class="form-control"
+                                   required/>
+                            <label class="form-label" for="loginPassword">Password</label>
+                            <div class="invalid-feedback">Password를 입력해주세요</div>
+                        </div>
 
-                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                            <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
-                            <div class="form-outline form-white mb-4">
-                                <input type="email" id="typeEmailX"
-                                       class="form-control form-control-lg"/>
-                                <label class="form-label" for="typeEmailX">Email</label>
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4">
+                            <div class="col d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                           id="form2Example31" checked/>
+                                    <label class="form-check-label" for="form2Example31"> Remember
+                                        me </label>
+                                </div>
                             </div>
 
-                            <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX"
-                                       class="form-control form-control-lg"/>
-                                <label class="form-label" for="typePasswordX">Password</label>
+                            <div class="col">
+                                <!-- Simple link -->
+                                <a href="#!">Forgot password?</a>
                             </div>
+                        </div>
 
-                            <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot
-                                password?</a></p>
+                        <!-- Submit button -->
+                        <button type="submit"
+                                class="btn btn-primary btn-block mb-4 data-mdb-ripple-init">Sign in
+                        </button>
 
-                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Login
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>Not a member? <a href="#!">Register</a></p>
+                            <p>or sign up with:</p>
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                    class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-facebook-f"></i>
                             </button>
 
-                            <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                                <a href="#!" class="text-white"><i
-                                        class="fab fa-facebook-f fa-lg"></i></a>
-                                <a href="#!" class="text-white"><i
-                                        class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-                            </div>
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                    class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-google"></i>
+                            </button>
 
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                    class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                    class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-github"></i>
+                            </button>
                         </div>
-
-                        <div>
-                            <p class="mb-0">Don't have an account? <a href="#!"
-                                                                      class="text-white-50 fw-bold">Sign
-                                Up</a>
-                            </p>
-                        </div>
-
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="swiper-slide">
-            <img src="../images/peer_coffee_swiper.jpg">
-        </div>
-        <div class="swiper-slide">
-            <img src="../images/lowkey_swiper.jpg">
-        </div>
-        <div class="swiper-slide">
-            <img src="../images/coffee_heureum_swiper.jpeg">
-        </div>
-        <div class="swiper-slide">
-            <img src="../images/pastel_coffee_works_swiper.jpg">
-        </div>
     </div>
-    <div class="autoplay-progress">
-        <svg viewBox="0 0 48 48">
-            <circle cx="24" cy="24" r="20"></circle>
-        </svg>
-        <span></span>
-    </div>
-
-</div>
-
-<%--Swiper--%>
+</section>
+<!-- Section: Design Block -->
 
 
 <%--Footer--%>
@@ -496,6 +511,8 @@ Last Update: August 13 2023 11:48 am, Panama
 <script src='../js/bootstrap.bundle.min.js'></script>
 <script src="../js/day-night.js"></script>
 <script src="../js/swiper.js"></script>
+<script src="../js/form-validate.js"></script>
+
 <!-- MDB -->
 <script
         type="text/javascript"
