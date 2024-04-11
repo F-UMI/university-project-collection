@@ -13,6 +13,8 @@
     <%--API--%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
 
     <%--Styles--%>
     <link rel="stylesheet" href="../css/carousel.css">
@@ -361,71 +363,207 @@ Last Update: August 13 2023 11:48 am, Panama
         <div class="card-body py-5 px-md-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
-                    <h2 class="fw-bold mb-5">- Login -</h2>
-                    <form class="needs-validation" novalidate>
-                        <!-- Email input -->
-                        <div data-mdb-input-init class="form-outline mb-5">
-                            <input type="text" id="loginId" class="form-control" required/>
-                            <label class="form-label" for="loginId">ID</label>
-                            <div class="invalid-feedback">ID를 입력해주세요</div>
+                    <h2 class="fw-bold mb-5">- Register -</h2>
+                    <div id="stepperForm" class="bs-stepper">
+                        <%--Stepper Header--%>
+                        <div class="bs-stepper-header" role="tablist">
+                            <div class="step" data-target="#user-form">
+                                <button type="button" class="step-trigger" role="tab"
+                                        id="stepperFormTrigger1" aria-controls="user-form">
+                                    <span class="bs-stepper-circle">1</span>
+                                    <span class="bs-stepper-label">User</span>
+                                </button>
+                            </div>
+                            <div class="bs-stepper-line"></div>
+                            <div class="step" data-target="#address-form">
+                                <button type="button" class="step-trigger" role="tab"
+                                        id="stepperFormTrigger2" aria-controls="address-form">
+                                    <span class="bs-stepper-circle">2</span>
+                                    <span class="bs-stepper-label">Address</span>
+                                </button>
+                            </div>
+                            <div class="bs-stepper-line"></div>
+                            <div class="step" data-target="#test-form-3">
+                                <button type="button" class="step-trigger" role="tab"
+                                        id="stepperFormTrigger3" aria-controls="test-form-3">
+                                    <span class="bs-stepper-circle">3</span>
+                                    <span class="bs-stepper-label">Validate</span>
+                                </button>
+                            </div>
                         </div>
-                        <!-- Password input -->
-                        <div data-mdb-input-init class="form-outline mb-5">
-                            <input type="password" id="loginPassword" class="form-control"
-                                   required/>
-                            <label class="form-label" for="loginPassword">Password</label>
-                            <div class="invalid-feedback">Password를 입력해주세요</div>
-                        </div>
+                        <%--Stepper Header--%>
+                        <div class="bs-stepper-content">
+                            <%--Stepper Contenet--%>
+                            <form class="needs-validation" onSubmit="return false" novalidate>
+                                <%--User Input Form--%>
+                                <div id="user-form" role="tabpanel" class="bs-stepper-pane fade"
+                                     aria-labelledby="stepperFormTrigger1">
+                                    <div class="data-mdb-input-init form-outline mb-5"
+                                         data-mdb-input-init>
+                                        <input type="text" id="inputIdForm" class="form-control"
+                                               required/>
+                                        <label class="form-label" for="inputIdForm">ID</label>
+                                        <div class="invalid-feedback">아이디를 입력해주세요</div>
+                                    </div>
+                                    <div class="data-mdb-input-init form-outline mb-5"
+                                         data-mdb-input-init>
+                                        <input type="password" id="inputPasswordForm"
+                                               class="form-control" required/>
+                                        <label class="form-label"
+                                               for="inputPasswordForm">Password</label>
+                                        <div class="invalid-feedback">비밀번호를 입력해주세요</div>
+                                    </div>
+                                    <div class="data-mdb-input-init form-outline mb-5"
+                                         data-mdb-input-init>
+                                        <input type="password" id="inputPasswordVerifiedForm"
+                                               class="form-control" required/>
+                                        <label class="form-label" for="inputPasswordVerifiedForm">Password
+                                            Verified</label>
+                                        <div class="invalid-feedback">동일한 비밀번호를 입력해주세요</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="data-mdb-input-init form-outline mb-5"
+                                                 data-mdb-input-init>
+                                                <input type="text" id="inputNameForm"
+                                                       class="form-control"
+                                                       required/>
+                                                <label class="form-label"
+                                                       for="inputNameForm">이름</label>
+                                                <div class="invalid-feedback">이름을 입력해주세요</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <h6 class="mb-2 pb-1">Gender: </h6>
 
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio"
+                                                       name="inlineRadioOptions" id="femaleGender"
+                                                       value="option1" checked/>
+                                                <label class="form-check-label" for="femaleGender">Female</label>
+                                            </div>
 
-                        <!-- 2 column grid layout for inline styling -->
-                        <div class="row mb-4">
-                            <div class="col d-flex justify-content-center">
-                                <!-- Checkbox -->
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                           id="form2Example31" checked/>
-                                    <label class="form-check-label" for="form2Example31"> Remember
-                                        me </label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio"
+                                                       name="inlineRadioOptions" id="maleGender"
+                                                       value="option2"/>
+                                                <label class="form-check-label" for="maleGender">Male</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="data-mdb-input-init form-outline mb-4"
+                                         data-mdb-input-init>
+                                        <input type="email" id="inputEmailForm"
+                                               class="form-control"
+                                               required/>
+                                        <label class="form-label"
+                                               for="inputEmailForm">Email</label>
+                                        <div class="invalid-feedback">정확한 이메일을 입력해주세요</div>
+                                    </div>
+                                    <!-- Checkbox -->
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                               id="allowingSMSReceives"/>
+                                        <label class="form-check-label"
+                                               for="allowingSMSReceives">
+                                            정보/이벤트 메일 수신에 동의합니다. </label>
+                                    </div>
+                                    <div class="data-mdb-input-init form-outline mb-4"
+                                         data-mdb-input-init>
+                                        <input type="tel" id="inputPhoneNumberForm"
+                                               class="form-control"
+                                               required/>
+                                        <label class="form-label"
+                                               for="inputPhoneNumberForm">Phone</label>
+                                        <div class="invalid-feedback">정확한 전화번호를 입력해주세요</div>
+                                    </div>
+                                    <!-- Checkbox -->
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                               id="allowingEMailReceives"/>
+                                        <label class="form-check-label"
+                                               for="allowingEMailReceives">
+                                            정보/이벤트 SMS 수신에 동의합니다. </label>
+                                    </div>
+                                    <button class="btn btn-primary btn-next-form">Next</button>
                                 </div>
-                            </div>
+                                <%--User Input Form--%>
 
-                            <div class="col">
-                                <!-- Simple link -->
-                                <a href="#!">Forgot password?</a>
-                            </div>
+                                <%--Address Input Form--%>
+                                <div id="address-form" role="tabpanel"
+                                     class="bs-stepper-pane fade"
+                                     aria-labelledby="stepperFormTrigger2">
+                                    <div class="input-group mb-5">
+                                        <div class="data-mdb-input-init form-outline"
+                                             data-mdb-input-init>
+                                            <input type="text" id="inputZipCodeForm"
+                                                   class="form-control active"
+                                                   aria-describedby="button-addon" required/>
+                                            <label class="form-label"
+                                                   for="inputZipCodeForm">우편번호</label>
+                                            <div class="invalid-feedback" style="margin: 0">우편번호를
+                                                입력해주세요
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary col-2"
+                                                type="button" id="button-addon" data-mdb-ripple-init
+                                                onclick="find_address()"
+                                                data-mdb-ripple-color="dark">
+                                            우편번호 찾기
+                                        </button>
+                                    </div>
+
+                                    <div class="data-mdb-input-init form-outline mb-5"
+                                         data-mdb-input-init>
+                                        <input type="text" id="inputAddressForm"
+                                               class="form-control active"
+                                               aria-describedby="button-addon" required/>
+                                        <label class="form-label"
+                                               for="inputAddressForm">주소</label>
+                                        <div class="invalid-feedback">주소를 입력해주세요</div>
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="data-mdb-input-init form-outline mb-5"
+                                             data-mdb-input-init>
+                                            <input type="text" id="inputDetailedAddressForm"
+                                                   class="form-control"
+                                                   aria-describedby="button-addon" required/>
+                                            <label class="form-label"
+                                                   for="inputDetailedAddressForm">상세주소</label>
+                                            <div class="invalid-feedback" style="margin: 0">상세주소를
+                                                입력해주세요
+                                            </div>
+                                        </div>
+                                        <div class="row-cols-2">
+                                            <div class="data-mdb-input-init form-outline mb-5"
+                                                 data-mdb-input-init>
+                                                <input type="text" id="inputExtraAddressForm"
+                                                       class="form-control active"
+                                                       aria-describedby="button-addon"/>
+                                                <label class="form-label"
+                                                       for="inputExtraAddressForm">참고항목</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary btn-next-form">Next</button>
+                                </div>
+                                <%--Address Input Form--%>
+
+                                <%--Validate Form--%>
+                                <div id="test-form-3" role="tabpanel"
+                                     class="bs-stepper-pane fade text-center"
+                                     aria-labelledby="stepperFormTrigger3">
+                                    <button type="button" class="btn btn-primary mt-5">Submit
+                                        <a href="./index.jsp"></a>
+                                    </button>
+                                </div>
+                                <%--Validate Form--%>
+
+                            </form>
+                            <%--Stepper Contenet--%>
                         </div>
-
-                        <!-- Submit button -->
-                        <button type="submit"
-                                class="btn btn-primary btn-block mb-4 data-mdb-ripple-init">Sign in
-                        </button>
-
-                        <!-- Register buttons -->
-                        <div class="text-center">
-                            <p>Not a member? <a href="./registerPage.jsp">Register</a></p>
-                            <p>or sign up with:</p>
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-link btn-floating mx-1">
-                                <i class="fab fa-facebook-f"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-link btn-floating mx-1">
-                                <i class="fab fa-google"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-link btn-floating mx-1">
-                                <i class="fab fa-twitter"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-link btn-floating mx-1">
-                                <i class="fab fa-github"></i>
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -437,7 +575,8 @@ Last Update: August 13 2023 11:48 am, Panama
 <%--Footer--%>
 <footer class="text-center text-lg-start bg-body-tertiary text-muted pt-5">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-5 border-bottom mt-5">
+    <section
+            class="d-flex justify-content-center justify-content-lg-between p-5 border-bottom mt-5">
         <!-- Left -->
         <div class="me-5 d-none d-lg-block">
             <span>Get connected with us on social networks:</span>
@@ -558,20 +697,26 @@ Last Update: August 13 2023 11:48 am, Panama
 </footer>
 <%--Footer--%>
 <%--Script--%>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-
-</script>
+<%--API--%>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src='../js/bootstrap.bundle.min.js'></script>
-<script src="../js/day-night.js"></script>
-<script src="../js/swiper.js"></script>
-<script src="../js/form-validate.js"></script>
-
-<!-- MDB -->
 <script
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
 ></script>
+<script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"
+></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+
+<%--CUSTOM--%>
+<script src="../js/day-night.js"></script>
+<script src="../js/swiper.js"></script>
+<script src="../js/form-validate.js"></script>
+<script src="../js/stepper.js"></script>
+<script src="../js/kakao-find-address.js"></script>
+
 </body>
 </html>
