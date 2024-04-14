@@ -347,24 +347,26 @@ Last Update: August 13 2023 11:48 am, Panama
 <!-- Section: Design Block -->
 <section class="text-center">
     <!-- Background image -->
-    <div class="p-5 bg-image object-cover" style="
+    <div class="p-5 bg-image object-cover " style="
         background-image: url('../images/lowkey_swiper.jpg');
         height: 91vh;
         "></div>
     <!-- Background image -->
 
-    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
-        margin-top: -37%;
+    <div class="card mx-4 mx-md-5 shadow-5-strong d-flex align-items-center justify-content-md-center w-50 position-absolute"
+         style="
+        margin-top: -700px;
+        left: 22.4%;
         background: hsla(0, 0%, 100%, 0.2);
         backdrop-filter: blur(30px);
         ">
-        <div class="card-body py-5 px-md-5">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-8">
+        <div class="card-body py-5 px-md-5 w-100 m-auto">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-lg-8 ">
                     <h2 class="fw-bold mb-5">- Login -</h2>
                     <form class="needs-validation" novalidate>
                         <!-- Email input -->
-                        <div data-mdb-input-init class="form-outline mb-5">
+                        <div data-mdb-input-init class="form-outline mb-5 ">
                             <input type="text" id="loginId" class="form-control" required/>
                             <label class="form-label" for="loginId">ID</label>
                             <div class="invalid-feedback">ID를 입력해주세요</div>
@@ -437,7 +439,8 @@ Last Update: August 13 2023 11:48 am, Panama
 <%--Footer--%>
 <footer class="text-center text-lg-start bg-body-tertiary text-muted pt-5">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-5 border-bottom mt-5">
+    <section
+            class="d-flex justify-content-center justify-content-lg-between p-5 border-bottom mt-5">
         <!-- Left -->
         <div class="me-5 d-none d-lg-block">
             <span>Get connected with us on social networks:</span>

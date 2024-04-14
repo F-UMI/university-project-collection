@@ -20,7 +20,10 @@
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/index-page.css">
     <link rel="stylesheet" href="../css/theme.css">
-
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+            rel="stylesheet"
+    />
 
     <%--Fonts--%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -727,6 +730,12 @@
 <script src="../js/day-night.js"></script>
 <script src="../js/navbar.js"></script>
 <script src="../js/swiper.js"></script>
+
+<!-- MDB -->
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+></script>
 </body>
 </html>
 

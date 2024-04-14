@@ -355,15 +355,16 @@ Last Update: August 13 2023 11:48 am, Panama
         "></div>
     <!-- Background image -->
 
-    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
-        margin-top: -37%;
+    <div class="card mx-4 mx-md-5 shadow-5-strong w-50 position-absolute" style="
+        top: 15%;
+        left: 22.4%;
         background: hsla(0, 0%, 100%, 0.2);
         backdrop-filter: blur(30px);
         ">
-        <div class="card-body py-5 px-md-5">
+        <div class="card-body h-25 py-5 px-md-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
-                    <h2 class="fw-bold mb-5">- Register -</h2>
+                    <h2 class="fw-bold mb-3">- Register -</h2>
                     <div id="stepperForm" class="bs-stepper">
                         <%--Stepper Header--%>
                         <div class="bs-stepper-header" role="tablist">
@@ -422,7 +423,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                         <div class="invalid-feedback">동일한 비밀번호를 입력해주세요</div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-6">
                                             <div class="data-mdb-input-init form-outline mb-5"
                                                  data-mdb-input-init>
                                                 <input type="text" id="inputNameForm"
@@ -433,7 +434,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                                 <div class="invalid-feedback">이름을 입력해주세요</div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-6">
                                             <h6 class="mb-2 pb-1">Gender: </h6>
 
                                             <div class="form-check form-check-inline">
@@ -494,7 +495,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                 <div id="address-form" role="tabpanel"
                                      class="bs-stepper-pane fade"
                                      aria-labelledby="stepperFormTrigger2">
-                                    <div class="input-group mb-5">
+                                    <div class="input-group mb-5" style="height: 34px">
                                         <div class="data-mdb-input-init form-outline"
                                              data-mdb-input-init>
                                             <input type="text" id="inputZipCodeForm"
@@ -506,11 +507,13 @@ Last Update: August 13 2023 11:48 am, Panama
                                                 입력해주세요
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary col-2"
+                                        <button class="btn btn-primary btn-sm col-2"
                                                 type="button" id="button-addon" data-mdb-ripple-init
                                                 onclick="find_address()"
                                                 data-mdb-ripple-color="dark">
-                                            우편번호 찾기
+                                            <p style="margin-top: -3px">
+                                                우편번호 찾기
+                                            </p>
                                         </button>
                                     </div>
 
@@ -535,7 +538,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                                 입력해주세요
                                             </div>
                                         </div>
-                                        <div class="row-cols-2">
+                                        <div class="row-cols-10">
                                             <div class="data-mdb-input-init form-outline mb-5"
                                                  data-mdb-input-init>
                                                 <input type="text" id="inputExtraAddressForm"
