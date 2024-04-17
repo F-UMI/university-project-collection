@@ -62,7 +62,7 @@
                                 <div class="row">
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/lowkey_logo.jpg"
+                                            <img src="../images/lowkey/logo.jpg"
                                                  class="img-fluid rounded-top " alt="image">
                                             <div class="card-body">
                                                 <figure>
@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/pastel_coffee_works_logo.jpg"
+                                            <img src="../images/pastel/logo.jpg"
                                                  class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
@@ -100,7 +100,7 @@
                                     </div>
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/peer_coffee_logo.jpg"
+                                            <img src="../images/peer/logo.jpg"
                                                  class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/coffee_heureum_logo.jpg"
+                                            <img src="../images/heureum/logo.jpg"
                                                  class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
@@ -343,16 +343,16 @@
 <div class="swiper mySwiper">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
-            <img src="../images/peer_coffee_swiper.jpg">
+            <img src="../images/peer/swiper.jpg">
         </div>
         <div class="swiper-slide">
-            <img src="../images/lowkey_swiper.jpg">
+            <img src="../images/lowkey/swiper.jpg">
         </div>
         <div class="swiper-slide">
-            <img src="../images/coffee_heureum_swiper.jpeg">
+            <img src="../images/heureum/swiper.jpeg">
         </div>
         <div class="swiper-slide">
-            <img src="../images/pastel_coffee_works_swiper.jpg">
+            <img src="../images/pastel/swiper.jpg">
         </div>
     </div>
     <div class="swiper-button-next"></div>
@@ -542,10 +542,10 @@
     <div class="img">
         <img src="../images/drip_bag.jpg" CLASS="img-fluid" alt="">
         <div class="card-img-overlay ms-4 me-5 mt-5">
-            <div class="pd-title">
+            <div class="pd-title text-white">
                 DRIP-BAG
             </div>
-            <p class="pd-link mb-3">
+            <p class="pd-link mb-3 text-white">
                 스페셜티 커피를 더욱 간편하게 즐겨보세요. <br>
                 다양한 로스터리가 제공하는 드립백을 골라보세요. <br>
                 집이나 사무실에 두거나, 선물하기도 좋습니다.

@@ -67,7 +67,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                 <div class="row">
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/lowkey_logo.jpg"
+                                            <img src="../images/lowkey/logo.jpg"
                                                  class="img-fluid" alt="image">
                                             <div class="card-body">
                                                 <figure>
@@ -86,7 +86,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                     </div>
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/pastel_coffee_works_logo.jpg"
+                                            <img src="../images/pastel/logo.jpg"
                                                  class="img-fluid" alt="image">
                                             <div class="card-body">
                                                 <figure>
@@ -124,7 +124,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/coffee_heureum_logo.jpg"
+                                            <img src="../images/heureum/logo.jpg"
                                                  class="img-fluid" alt="image">
                                             <div class="card-body">
                                                 <figure>
@@ -350,8 +350,8 @@ Last Update: August 13 2023 11:48 am, Panama
 <section class="text-center">
     <!-- Background image -->
     <div class="p-5 bg-image object-cover" style="
-        background-image: url('../images/lowkey_swiper.jpg');
-        height: 91vh;
+        background-image: url('../images/lowkey/swiper.jpg');
+        height: 130vh;
         "></div>
     <!-- Background image -->
 

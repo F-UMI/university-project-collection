@@ -64,7 +64,7 @@
                                 <div class="row">
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/lowkey_logo.jpg"
+                                            <img src="../images/lowkey/logo.jpg"
                                                  class="img-fluid rounded-top " alt="image">
                                             <div class="card-body">
                                                 <figure>
@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/pastel_coffee_works_logo.jpg"
+                                            <img src="../images/pastel/logo.jpg"
                                                  class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/coffee_heureum_logo.jpg"
+                                            <img src="../images/heureum/logo.jpg"
                                                  class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
