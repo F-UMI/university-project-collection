@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -34,11 +35,16 @@
 
 </head>
 <body style="overflow-x: hidden">
+<%--JSP--%>
+<%
+    session.getAttribute("member");
+    System.out.println(session.getAttribute("member"));
+%>
 
 <%--Nav--%>
 <nav class="navbar navbar-expand-lg shadow sticky-top ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="./index.jsp">
+        <a class="navbar-brand" href="#">
             <img src="../images/logo.png" alt="Drips" width="64" height="60">
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -52,9 +58,9 @@
             </div>
         </button>
         <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav nav-underline mr-auto mb-2 mb-lg-0 ">
+            <ul class="navbar-nav nav-underline mr-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown dropdown-mega position-static">
-                    <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                        data-bs-auto-close="outside">Roasters</a>
                     <div class="dropdown-menu shadow">
                         <div class="mega-content px-4">
@@ -152,11 +158,11 @@
                                data-bs-toggle="dropdown">Submenu
                                 Left</a>
                             <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href=""> Third level 1</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 2</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 3</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 4</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 5</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 1</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 2</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 3</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 4</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 5</a></li>
                             </ul>
                         </li>
                         <li class="dropend">
@@ -164,38 +170,42 @@
                                data-bs-toggle="dropdown"
                                data-bs-auto-close="outside">Submenu Right</a>
                             <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href=""> Second level 1</a></li>
-                                <li><a class="dropdown-item" href=""> Second level 2</a></li>
-                                <li><a class="dropdown-item" href=""> Second level 3</a></li>
+                                <li><a class="dropdown-item" href="#"> Second level 1</a></li>
+                                <li><a class="dropdown-item" href="#"> Second level 2</a></li>
+                                <li><a class="dropdown-item" href="#"> Second level 3</a></li>
                                 <li class="dropend">
                                     <a href="#" class="dropdown-item dropdown-toggle"
                                        data-bs-toggle="dropdown"
                                        data-bs-auto-close="outside">Let's go deeper!</a>
                                     <ul class="dropdown-menu dropdown-submenu shadow">
-                                        <li><a class="dropdown-item" href=""> Third level 1</a></li>
-                                        <li><a class="dropdown-item" href=""> Third level 2</a></li>
-                                        <li><a class="dropdown-item" href=""> Third level 3</a></li>
-                                        <li><a class="dropdown-item" href=""> Third level 4</a></li>
+                                        <li><a class="dropdown-item" href="#"> Third level 1</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#"> Third level 2</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#"> Third level 3</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#"> Third level 4</a>
+                                        </li>
                                         <li class="dropend">
                                             <a href="#" class="dropdown-item dropdown-toggle"
                                                data-bs-toggle="dropdown">Still
                                                 don't have enough? Go much deeper!</a>
                                             <ul class="dropdown-menu dropdown-submenu shadow">
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     1</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     2</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     3</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     4</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     5</a></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item" href=""> Third level 5</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 5</a></li>
                             </ul>
                         </li>
                         <li>
@@ -300,7 +310,15 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-theme">
+                <li class="user-info ms-2 m-auto">
+                    <c:if test="${member.status}">
+                        <p class="m-0">
+                            <c:out value="${member.name}"/>
+                            님 어서오세요!
+                        </p>
+                    </c:if>
+                </li>
+                <li class="nav-theme ms-2">
                     <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -309,8 +327,9 @@
                         </svg>
                     </a>
                 </li>
-                <li class="nav-user">
-                    <a class="nav-link icons" href="login.jsp" tabindex="-1"
+                <li class="nav-user ms-1">
+                    <a class="nav-link icons" href="/profile"
+                       tabindex="-1"
                        data-bs-toggle-theme="true"
                        data-bs-toggle="tooltip" data-bs-placement="bottom"
                        data-bs-title="Login"
@@ -323,8 +342,8 @@
                         </svg>
                     </a>
                 </li>
-                <li class="nav-cart">
-                    <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
+                <li class="nav-cart ms-1">
+                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
@@ -538,10 +557,10 @@
 <%--SEASONLESS--%>
 
 <%--DripBag--%>
-<div class="container-fluid">
+<div class="container-fluid p-0">
     <div class="img">
-        <img src="../images/drip_bag.jpg" CLASS="img-fluid" alt="">
-        <div class="card-img-overlay ms-4 me-5 mt-5">
+        <img src="../images/drip_bag.jpg" CLASS="img-fluid w-100" alt="">
+        <div class="card-img-overlay w-50 ms-4 me-5 mt-5">
             <div class="pd-title text-white">
                 DRIP-BAG
             </div>
@@ -736,7 +755,6 @@
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
 ></script>
+
 </body>
 </html>
-
-`

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -36,6 +37,7 @@
 
 </head>
 <body style="overflow-x: hidden">
+<jsp:useBean id="member" class="org.hello.dbpproject.entity.Member" scope="session"/>
 
 <%--Nav--%>
 <nav class="navbar navbar-expand-lg shadow sticky-top ">
@@ -56,7 +58,7 @@
         <div class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav nav-underline mr-auto mb-2 mb-lg-0 ">
                 <li class="nav-item dropdown dropdown-mega position-static">
-                    <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                        data-bs-auto-close="outside">Roasters</a>
                     <div class="dropdown-menu shadow">
                         <div class="mega-content px-4">
@@ -154,11 +156,11 @@
                                data-bs-toggle="dropdown">Submenu
                                 Left</a>
                             <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href=""> Third level 1</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 2</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 3</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 4</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 5</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 1</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 2</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 3</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 4</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 5</a></li>
                             </ul>
                         </li>
                         <li class="dropend">
@@ -166,38 +168,38 @@
                                data-bs-toggle="dropdown"
                                data-bs-auto-close="outside">Submenu Right</a>
                             <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href=""> Second level 1</a></li>
-                                <li><a class="dropdown-item" href=""> Second level 2</a></li>
-                                <li><a class="dropdown-item" href=""> Second level 3</a></li>
+                                <li><a class="dropdown-item" href="#"> Second level 1</a></li>
+                                <li><a class="dropdown-item" href="#"> Second level 2</a></li>
+                                <li><a class="dropdown-item" href="#"> Second level 3</a></li>
                                 <li class="dropend">
                                     <a href="#" class="dropdown-item dropdown-toggle"
                                        data-bs-toggle="dropdown"
                                        data-bs-auto-close="outside">Let's go deeper!</a>
                                     <ul class="dropdown-menu dropdown-submenu shadow">
-                                        <li><a class="dropdown-item" href=""> Third level 1</a></li>
-                                        <li><a class="dropdown-item" href=""> Third level 2</a></li>
-                                        <li><a class="dropdown-item" href=""> Third level 3</a></li>
-                                        <li><a class="dropdown-item" href=""> Third level 4</a></li>
+                                        <li><a class="dropdown-item" href="#"> Third level 1</a></li>
+                                        <li><a class="dropdown-item" href="#"> Third level 2</a></li>
+                                        <li><a class="dropdown-item" href="#"> Third level 3</a></li>
+                                        <li><a class="dropdown-item" href="#"> Third level 4</a></li>
                                         <li class="dropend">
                                             <a href="#" class="dropdown-item dropdown-toggle"
                                                data-bs-toggle="dropdown">Still
                                                 don't have enough? Go much deeper!</a>
                                             <ul class="dropdown-menu dropdown-submenu shadow">
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     1</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     2</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     3</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     4</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     5</a></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item" href=""> Third level 5</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 5</a></li>
                             </ul>
                         </li>
                         <li>
@@ -302,8 +304,16 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
+                <li class="user-info ms-2 m-auto">
+                    <c:if test="${member.status}">
+                    <p class="m-0">
+                        <c:out value="${member.name}"/>
+                        님 어서오세요!
+                    </p></li>
+                </c:if>
                 <li class="nav-theme">
-                    <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
+                    <a class="nav-link icons" href="#"
+                       tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
@@ -312,7 +322,7 @@
                     </a>
                 </li>
                 <li class="nav-user">
-                    <a class="nav-link icons" href="login.jsp" tabindex="-1"
+                    <a class="nav-link icons" href="${pageContext.request.contextPath}/profile" tabindex="-1"
                        data-bs-toggle-theme="true"
                        data-bs-toggle="tooltip" data-bs-placement="bottom"
                        data-bs-title="Login"
@@ -326,7 +336,7 @@
                     </a>
                 </li>
                 <li class="nav-cart">
-                    <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
+                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
@@ -374,11 +384,13 @@
         <div class="col-10">
             <div class="row row-cols-auto g-5  mt-5">
                 <div class="col pd-col">
-                    <div class="card roaster-card-img bg-dark text-black" data-mdb-ripple-init data-mdb-ripple-color="#525740">
+                    <div class="card roaster-card-img bg-dark text-black" data-mdb-ripple-init
+                         data-mdb-ripple-color="#525740">
                         <img src="../images/beans.png" class="card-img" alt="...">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
+                            <p class="card-text">This is a wider card with supporting text below as
+                                a
                                 natural lead-in to additional content. This content is a little bit
                                 longer.</p>
                             <p class="card-text">Last updated 3 mins ago</p>
@@ -386,11 +398,13 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card roaster-card-img bg-dark text-black" data-mdb-ripple-init data-mdb-ripple-color="#525740">
+                    <div class="card roaster-card-img bg-dark text-black" data-mdb-ripple-init
+                         data-mdb-ripple-color="#525740">
                         <img src="../images/beans.png" class="card-img" alt="...">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
+                            <p class="card-text">This is a wider card with supporting text below as
+                                a
                                 natural lead-in to additional content. This content is a little bit
                                 longer.</p>
                             <p class="card-text">Last updated 3 mins ago</p>
@@ -398,11 +412,13 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card roaster-card-img bg-dark text-black" data-mdb-ripple-init data-mdb-ripple-color="#525740">
+                    <div class="card roaster-card-img bg-dark text-black" data-mdb-ripple-init
+                         data-mdb-ripple-color="#525740">
                         <img src="../images/beans.png" class="card-img" alt="...">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
+                            <p class="card-text">This is a wider card with supporting text below as
+                                a
                                 natural lead-in to additional content. This content is a little bit
                                 longer.</p>
                             <p class="card-text">Last updated 3 mins ago</p>
@@ -410,11 +426,13 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card roaster-card-img bg-dark text-black" data-mdb-ripple-init data-mdb-ripple-color="#525740">
+                    <div class="card roaster-card-img bg-dark text-black" data-mdb-ripple-init
+                         data-mdb-ripple-color="#525740">
                         <img src="../images/beans.png" class="card-img" alt="...">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
+                            <p class="card-text">This is a wider card with supporting text below as
+                                a
                                 natural lead-in to additional content. This content is a little bit
                                 longer.</p>
                             <p class="card-text">Last updated 3 mins ago</p>
@@ -422,11 +440,13 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card roaster-card-img bg-dark text-black" data-mdb-ripple-init data-mdb-ripple-color="#525740">
+                    <div class="card roaster-card-img bg-dark text-black" data-mdb-ripple-init
+                         data-mdb-ripple-color="#525740">
                         <img src="../images/beans.png" class="card-img" alt="...">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
+                            <p class="card-text">This is a wider card with supporting text below as
+                                a
                                 natural lead-in to additional content. This content is a little bit
                                 longer.</p>
                             <p class="card-text">Last updated 3 mins ago</p>
@@ -434,11 +454,13 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card roaster-card-img bg-dark text-black " data-mdb-ripple-init data-mdb-ripple-color="#525740">
+                    <div class="card roaster-card-img bg-dark text-black " data-mdb-ripple-init
+                         data-mdb-ripple-color="#525740">
                         <img src="../images/beans.png" class="card-img" alt="...">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
+                            <p class="card-text">This is a wider card with supporting text below as
+                                a
                                 natural lead-in to additional content. This content is a little bit
                                 longer.</p>
                             <p class="card-text">Last updated 3 mins ago</p>

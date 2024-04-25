@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="../css/carousel.css">
     <link rel='stylesheet' href='../css/bootstrap/bootstrap.css'>
     <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/index-page.css">
+    <link rel="stylesheet" href="../css/register-page.css">
     <link
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
             rel="stylesheet"
@@ -34,12 +35,7 @@
           href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<!--
-(c) 2020-2023 by Simon Köhler
-simonkoehler.com
-Last Update: August 13 2023 11:48 am, Panama
--->
+
 <%--Nav--%>
 <nav class="navbar navbar-expand-lg shadow sticky-top shadow-sm">
     <div class="container-fluid">
@@ -105,7 +101,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                     </div>
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
-                                            <img src="../images/peer_coffee_logo.jpg"
+                                            <img src="../images/peer/logo.jpg"
                                                  class="img-fluid" alt="image">
                                             <div class="card-body">
                                                 <figure>
@@ -157,11 +153,11 @@ Last Update: August 13 2023 11:48 am, Panama
                                data-bs-toggle="dropdown">Submenu
                                 Left</a>
                             <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href=""> Third level 1</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 2</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 3</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 4</a></li>
-                                <li><a class="dropdown-item" href=""> Third level 5</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 1</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 2</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 3</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 4</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 5</a></li>
                             </ul>
                         </li>
                         <li class="dropend">
@@ -169,38 +165,42 @@ Last Update: August 13 2023 11:48 am, Panama
                                data-bs-toggle="dropdown"
                                data-bs-auto-close="outside">Submenu Right</a>
                             <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href=""> Second level 1</a></li>
-                                <li><a class="dropdown-item" href=""> Second level 2</a></li>
-                                <li><a class="dropdown-item" href=""> Second level 3</a></li>
+                                <li><a class="dropdown-item" href="#"> Second level 1</a></li>
+                                <li><a class="dropdown-item" href="#"> Second level 2</a></li>
+                                <li><a class="dropdown-item" href="#"> Second level 3</a></li>
                                 <li class="dropend">
                                     <a href="#" class="dropdown-item dropdown-toggle"
                                        data-bs-toggle="dropdown"
                                        data-bs-auto-close="outside">Let's go deeper!</a>
                                     <ul class="dropdown-menu dropdown-submenu shadow">
-                                        <li><a class="dropdown-item" href=""> Third level 1</a></li>
-                                        <li><a class="dropdown-item" href=""> Third level 2</a></li>
-                                        <li><a class="dropdown-item" href=""> Third level 3</a></li>
-                                        <li><a class="dropdown-item" href=""> Third level 4</a></li>
+                                        <li><a class="dropdown-item" href="#"> Third level 1</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#"> Third level 2</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#"> Third level 3</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#"> Third level 4</a>
+                                        </li>
                                         <li class="dropend">
                                             <a href="#" class="dropdown-item dropdown-toggle"
                                                data-bs-toggle="dropdown">Still
                                                 don't have enough? Go much deeper!</a>
                                             <ul class="dropdown-menu dropdown-submenu shadow">
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     1</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     2</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     3</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     4</a></li>
-                                                <li><a class="dropdown-item" href=""> Third level
+                                                <li><a class="dropdown-item" href="#"> Third level
                                                     5</a></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item" href=""> Third level 5</a></li>
+                                <li><a class="dropdown-item" href="#"> Third level 5</a></li>
                             </ul>
                         </li>
                         <li>
@@ -305,6 +305,13 @@ Last Update: August 13 2023 11:48 am, Panama
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
+                <li class="user-info ms-2 m-auto">
+                    <c:if test="${member.status}">
+                    <p class="m-0">
+                        <c:out value="${member.name}"/>
+                        님 어서오세요!
+                    </p></li>
+                </c:if>
                 <li class="nav-theme">
                     <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
@@ -315,7 +322,8 @@ Last Update: August 13 2023 11:48 am, Panama
                     </a>
                 </li>
                 <li class="nav-user">
-                    <a class="nav-link icons" href="login.jsp" tabindex="-1"
+                    <a class="nav-link icons" href="${pageContext.request.contextPath}/profile"
+                       tabindex="-1"
                        data-bs-toggle-theme="true"
                        data-bs-toggle="tooltip" data-bs-placement="bottom"
                        data-bs-title="Login"
@@ -329,7 +337,8 @@ Last Update: August 13 2023 11:48 am, Panama
                     </a>
                 </li>
                 <li class="nav-cart">
-                    <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
+                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart"
+                       tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
@@ -344,7 +353,6 @@ Last Update: August 13 2023 11:48 am, Panama
 </nav>
 <%--Nav--%>
 
-<%--로그인 입력 폼을 가운데 위치하게하고 백그라운드 처리하면 될거 같은데 한번 보자고--%>
 
 <!-- Section: Design Block -->
 <section class="text-center">
@@ -355,11 +363,14 @@ Last Update: August 13 2023 11:48 am, Panama
         "></div>
     <!-- Background image -->
 
-    <div class="card mx-4 mx-md-5 shadow-5-strong w-50 position-absolute" style="
-        top: 15%;
-        left: 22.4%;
+    <div class="d-flex justify-content-center align-content-center card mx-4 mx-md-5 shadow-5-strong w-50 position-absolute"
+         style="
+        top: 50%;
+        left: 47.5%;
         background: hsla(0, 0%, 100%, 0.2);
         backdrop-filter: blur(30px);
+        color: #373b3e;
+              transform: translate(-50%, -47.5%);
         ">
         <div class="card-body h-25 py-5 px-md-5">
             <div class="row d-flex justify-content-center">
@@ -395,13 +406,16 @@ Last Update: August 13 2023 11:48 am, Panama
                         <%--Stepper Header--%>
                         <div class="bs-stepper-content">
                             <%--Stepper Contenet--%>
-                            <form class="needs-validation" onSubmit="return false" novalidate>
+                            <form action="${pageContext.request.contextPath}/registration"
+                                  class="needs-validation" id="registrationUser" method="POST" novalidate
+                            >
                                 <%--User Input Form--%>
                                 <div id="user-form" role="tabpanel" class="bs-stepper-pane fade"
                                      aria-labelledby="stepperFormTrigger1">
                                     <div class="data-mdb-input-init form-outline mb-5"
                                          data-mdb-input-init>
                                         <input type="text" id="inputIdForm" class="form-control"
+                                               name="id"
                                                required/>
                                         <label class="form-label" for="inputIdForm">ID</label>
                                         <div class="invalid-feedback">아이디를 입력해주세요</div>
@@ -409,6 +423,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                     <div class="data-mdb-input-init form-outline mb-5"
                                          data-mdb-input-init>
                                         <input type="password" id="inputPasswordForm"
+                                               name="password"
                                                class="form-control" required/>
                                         <label class="form-label"
                                                for="inputPasswordForm">Password</label>
@@ -426,7 +441,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                         <div class="col-md-6">
                                             <div class="data-mdb-input-init form-outline mb-5"
                                                  data-mdb-input-init>
-                                                <input type="text" id="inputNameForm"
+                                                <input type="text" id="inputNameForm" name="name"
                                                        class="form-control"
                                                        required/>
                                                 <label class="form-label"
@@ -439,15 +454,15 @@ Last Update: August 13 2023 11:48 am, Panama
 
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio"
-                                                       name="inlineRadioOptions" id="femaleGender"
-                                                       value="option1" checked/>
+                                                       name="gender" id="femaleGender"
+                                                       value="여성" checked/>
                                                 <label class="form-check-label" for="femaleGender">Female</label>
                                             </div>
 
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio"
-                                                       name="inlineRadioOptions" id="maleGender"
-                                                       value="option2"/>
+                                                       name="gender" id="maleGender"
+                                                       value="남성"/>
                                                 <label class="form-check-label" for="maleGender">Male</label>
                                             </div>
 
@@ -455,7 +470,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                     </div>
                                     <div class="data-mdb-input-init form-outline mb-4"
                                          data-mdb-input-init>
-                                        <input type="email" id="inputEmailForm"
+                                        <input type="email" id="inputEmailForm" name="email"
                                                class="form-control"
                                                required/>
                                         <label class="form-label"
@@ -473,6 +488,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                     <div class="data-mdb-input-init form-outline mb-4"
                                          data-mdb-input-init>
                                         <input type="tel" id="inputPhoneNumberForm"
+                                               name="phoneNumber"
                                                class="form-control"
                                                required/>
                                         <label class="form-label"
@@ -482,12 +498,12 @@ Last Update: August 13 2023 11:48 am, Panama
                                     <!-- Checkbox -->
                                     <div class="form-check mb-3">
                                         <input class="form-check-input" type="checkbox" value=""
-                                               id="allowingEMailReceives"/>
+                                               id="allowingEmailReceives"/>
                                         <label class="form-check-label"
-                                               for="allowingEMailReceives">
+                                               for="allowingEmailReceives">
                                             정보/이벤트 SMS 수신에 동의합니다. </label>
                                     </div>
-                                    <button class="btn btn-primary btn-next-form">Next</button>
+                                    <button type="button" class="btn btn-primary btn-next-form">Next</button>
                                 </div>
                                 <%--User Input Form--%>
 
@@ -498,7 +514,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                     <div class="input-group mb-5" style="height: 34px">
                                         <div class="data-mdb-input-init form-outline"
                                              data-mdb-input-init>
-                                            <input type="text" id="inputZipCodeForm"
+                                            <input type="text" id="inputZipCodeForm" name="zipCode"
                                                    class="form-control active"
                                                    aria-describedby="button-addon" required/>
                                             <label class="form-label"
@@ -519,7 +535,7 @@ Last Update: August 13 2023 11:48 am, Panama
 
                                     <div class="data-mdb-input-init form-outline mb-5"
                                          data-mdb-input-init>
-                                        <input type="text" id="inputAddressForm"
+                                        <input type="text" id="inputAddressForm" name="address"
                                                class="form-control active"
                                                aria-describedby="button-addon" required/>
                                         <label class="form-label"
@@ -530,6 +546,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                         <div class="data-mdb-input-init form-outline mb-5"
                                              data-mdb-input-init>
                                             <input type="text" id="inputDetailedAddressForm"
+                                                   name="detailedAddress"
                                                    class="form-control"
                                                    aria-describedby="button-addon" required/>
                                             <label class="form-label"
@@ -542,6 +559,7 @@ Last Update: August 13 2023 11:48 am, Panama
                                             <div class="data-mdb-input-init form-outline mb-5"
                                                  data-mdb-input-init>
                                                 <input type="text" id="inputExtraAddressForm"
+                                                       name="extraAddress"
                                                        class="form-control active"
                                                        aria-describedby="button-addon"/>
                                                 <label class="form-label"
@@ -549,20 +567,16 @@ Last Update: August 13 2023 11:48 am, Panama
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary btn-next-form">Next</button>
+                                    <button type="button" class="btn btn-primary btn-next-form">Next</button>
                                 </div>
                                 <%--Address Input Form--%>
-
                                 <%--Validate Form--%>
                                 <div id="test-form-3" role="tabpanel"
                                      class="bs-stepper-pane fade text-center"
                                      aria-labelledby="stepperFormTrigger3">
-                                    <button type="button" class="btn btn-primary mt-5">Submit
-                                        <a href="./index.jsp"></a>
-                                    </button>
+                                    <button class="btn btn-primary" type="submit" data-mdb-ripple-init>수정하기</button>
                                 </div>
                                 <%--Validate Form--%>
-
                             </form>
                             <%--Stepper Contenet--%>
                         </div>
@@ -588,22 +602,22 @@ Last Update: August 13 2023 11:48 am, Panama
 
         <!-- Right -->
         <div>
-            <a href="" class="me-4 text-reset">
+            <a href="#" class="me-4 text-reset">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="#" class="me-4 text-reset">
                 <i class="fab fa-twitter"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="#" class="me-4 text-reset">
                 <i class="fab fa-google"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="#" class="me-4 text-reset">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="#" class="me-4 text-reset">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="#" class="me-4 text-reset">
                 <i class="fab fa-github"></i>
             </a>
         </div>
@@ -721,5 +735,24 @@ Last Update: August 13 2023 11:48 am, Panama
 <script src="../js/stepper.js"></script>
 <script src="../js/kakao-find-address.js"></script>
 
+<script>
+  // Wait for the DOM content to load
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find the form element by its ID
+    var form = document.getElementById('registrationUser');
+
+    // Add a submit event listener to the form
+    form.addEventListener('submit', function (event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Log a message to indicate that the form is being submitted
+      console.log('Form submitted');
+
+      // Optionally, you can submit the form programmatically if needed
+      // form.submit();
+    });
+  });
+</script>
 </body>
 </html>

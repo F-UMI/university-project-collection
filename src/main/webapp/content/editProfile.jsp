@@ -12,18 +12,19 @@
     <meta charset="UTF-8">
     <title>Drips</title>
     <%--API--%>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/ /dist/css/ .min.css">
 
     <%--Styles--%>
     <link rel="stylesheet" href="../css/carousel.css">
     <link rel='stylesheet' href='../css/bootstrap/bootstrap.css'>
     <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/index-page.css">
+    <link rel="stylesheet" href="../css/register-page.css">
     <link
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
             rel="stylesheet"
-    />
+    >
 
     <%--Fonts--%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +34,9 @@
           href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
 </head>
 <body>
+<jsp:useBean id="member" class="org.hello.dbpproject.entity.Member" scope="session"/>
+
+
 <%--Nav--%>
 <nav class="navbar navbar-expand-lg shadow sticky-top shadow-sm">
     <div class="container-fluid">
@@ -170,10 +174,14 @@
                                        data-bs-toggle="dropdown"
                                        data-bs-auto-close="outside">Let's go deeper!</a>
                                     <ul class="dropdown-menu dropdown-submenu shadow">
-                                        <li><a class="dropdown-item" href="#"> Third level 1</a></li>
-                                        <li><a class="dropdown-item" href="#"> Third level 2</a></li>
-                                        <li><a class="dropdown-item" href="#"> Third level 3</a></li>
-                                        <li><a class="dropdown-item" href="#"> Third level 4</a></li>
+                                        <li><a class="dropdown-item" href="#"> Third level 1</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#"> Third level 2</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#"> Third level 3</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#"> Third level 4</a>
+                                        </li>
                                         <li class="dropend">
                                             <a href="#" class="dropdown-item dropdown-toggle"
                                                data-bs-toggle="dropdown">Still
@@ -298,7 +306,14 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-theme nav-item">
+                <li class="user-info ms-2 m-auto">
+                    <c:if test="${member.status}">
+                    <p class="m-0">
+                        <c:out value="${member.name}"/>
+                        님 어서오세요!
+                    </p></li>
+                </c:if>
+                <li class="nav-theme">
                     <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -308,7 +323,9 @@
                     </a>
                 </li>
                 <li class="nav-user">
-                    <a class="nav-link icons" href="${pageContext.request.contextPath}/profile" tabindex="-1"
+                    <a class="nav-link icons" href="${pageContext.request.contextPath}/profile"
+                       tabindex="-1"
+                       data-bs-toggle-theme="true"
                        data-bs-toggle="tooltip" data-bs-placement="bottom"
                        data-bs-title="Login"
                        aria-disabled="true">
@@ -321,7 +338,8 @@
                     </a>
                 </li>
                 <li class="nav-cart">
-                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart" tabindex="-1"
+                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart"
+                       tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
@@ -337,96 +355,186 @@
 <%--Nav--%>
 
 
-
 <!-- Section: Design Block -->
 <section class="text-center">
     <!-- Background image -->
-    <div class="p-5 bg-image object-cover " style="
+    <div class="p-5 bg-image object-cover" style="
         background-image: url('../images/lowkey/swiper.jpg');
-        height: 91vh;
+        height: 120vh;
         "></div>
     <!-- Background image -->
 
     <div class="d-flex card mx-4 mx-md-5 shadow-5-strong align-items-center justify-content-md-center w-50 position-absolute"
          style="
-        margin-top: -700px;
+        margin-top: -55%;
         left: 22%;
         background: hsla(0, 0%, 100%, 0.2);
         backdrop-filter: blur(30px);
         ">
         <div class="card-body py-5 px-md-5 w-100 m-auto">
-            <div class="row d-flex align-items-center justify-content-center">
-                <div class="col-lg-8 ">
-                    <h2 class="fw-bold mb-5">- Login -</h2>
-                    <form class="needs-validation"
-                          action="${pageContext.request.contextPath}/login"
-                          method="post" novalidate>
-                        <!-- Email input -->
-                        <div data-mdb-input-init class="form-outline mb-5 ">
-                            <input type="text" id="loginId" class="form-control" name="id"
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-3">- Modify User Info -</h2>
+                    <form class="needs-validation" novalidate id="updateMember" method="post"
+                          action="${pageContext.request.contextPath}/update">
+                        <div class="data-mdb-input-init form-outline mb-5"
+                             data-mdb-input-init>
+                            <input type="text" id="inputIdForm" class="form-control"
+                                   name="id" value="${member.id}" readonly
                                    required/>
-                            <label class="form-label" for="loginId">ID</label>
-                            <div class="invalid-feedback">ID를 입력해주세요</div>
+                            <label class="form-label" for="inputIdForm">ID</label>
+                            <div class="invalid-feedback">아이디를 입력해주세요</div>
                         </div>
-                        <!-- Password input -->
-                        <div data-mdb-input-init class="form-outline mb-5">
-                            <input type="password" id="loginPassword" class="form-control"
-                                   name="password"
-                                   required/>
-                            <label class="form-label" for="loginPassword">Password</label>
-                            <div class="invalid-feedback">Password를 입력해주세요</div>
+                        <div class="data-mdb-input-init form-outline mb-5"
+                             data-mdb-input-init>
+                            <input type="password" id="inputPasswordForm"
+                                   name="editPassword"
+                                   class="form-control" required/>
+                            <label class="form-label"
+                                   for="inputPasswordForm">Password</label>
+                            <div class="invalid-feedback">비밀번호를 입력해주세요</div>
                         </div>
-
-
-                        <!-- 2 column grid layout for inline styling -->
-                        <div class="row mb-4">
-                            <div class="col d-flex justify-content-center">
-                                <!-- Checkbox -->
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                           id="form2Example31" checked/>
-                                    <label class="form-check-label" for="form2Example31"> Remember
-                                        me </label>
+                        <div class="data-mdb-input-init form-outline mb-5"
+                             data-mdb-input-init>
+                            <input type="password" id="inputPasswordVerifiedForm"
+                                   class="form-control" required/>
+                            <label class="form-label" for="inputPasswordVerifiedForm">Password
+                                Verified</label>
+                            <div class="invalid-feedback">동일한 비밀번호를 입력해주세요</div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col-md-6 m-auto">
+                                <div class="data-mdb-input-init form-outline"
+                                     data-mdb-input-init>
+                                    <input type="text" id="inputNameForm" name="editName"
+                                           class="form-control" value="${member.name}"
+                                           required/>
+                                    <label class="form-label"
+                                           for="inputNameForm">이름</label>
+                                    <div class="invalid-feedback">이름을 입력해주세요</div>
                                 </div>
                             </div>
+                            <div class="col-md-6 m-auto">
+                                <h6 class="mb-2 pb-1">Gender: </h6>
+                                <c:if test="${member.gender} == "/>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio"
+                                           name="editGender" id="femaleGender" value="여성"
+                                            <%=
+                                            member.getGender().equals("여성") ? "checked" : ""
+                                            %>
+                                    />
+                                    <label class="form-check-label" for="femaleGender">Female</label>
+                                </div>
 
-                            <div class="col">
-                                <!-- Simple link -->
-                                <a href="#!">Forgot password?</a>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio"
+                                           name="editGender" id="maleGender" value="남성"
+                                            <%=
+                                            member.getGender().equals("남성") ? "checked" : ""
+                                            %>
+                                    />
+                                    <label class="form-check-label" for="maleGender">Male</label>
+                                </div>
                             </div>
                         </div>
-
-                        <!-- Submit button -->
-                        <button type="submit"
-                                class="btn btn-primary btn-block mb-4 data-mdb-ripple-init">Sign in
-                        </button>
-
-                        <!-- Register buttons -->
-                        <div class="text-center">
-                            <p>Not a member? <a href="./register.jsp">Register</a></p>
-                            <p>or sign up with:</p>
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-link btn-floating mx-1">
-                                <i class="fab fa-facebook-f"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-link btn-floating mx-1">
-                                <i class="fab fa-google"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-link btn-floating mx-1">
-                                <i class="fab fa-twitter"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-link btn-floating mx-1">
-                                <i class="fab fa-github"></i>
+                        <div class="data-mdb-input-init form-outline mb-4"
+                             data-mdb-input-init>
+                            <input type="email" id="inputEmailForm" name="editEmail"
+                                   class="form-control" value="${member.email}"
+                                   required/>
+                            <label class="form-label"
+                                   for="inputEmailForm">Email</label>
+                            <div class="invalid-feedback">정확한 이메일을 입력해주세요</div>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value=""
+                                   id="allowingSMSReceives"/>
+                            <label class="form-check-label"
+                                   for="allowingSMSReceives">
+                                정보/이벤트 메일 수신에 동의합니다. </label>
+                        </div>
+                        <div class="data-mdb-input-init form-outline mb-4"
+                             data-mdb-input-init>
+                            <input type="tel" id="inputPhoneNumberForm"
+                                   name="editPhoneNumber" value="${member.phoneNumber}"
+                                   class="form-control"
+                                   required/>
+                            <label class="form-label"
+                                   for="inputPhoneNumberForm">Phone</label>
+                            <div class="invalid-feedback">정확한 전화번호를 입력해주세요</div>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value=""
+                                   id="allowingEmailReceives"/>
+                            <label class="form-check-label"
+                                   for="allowingEMailReceives">
+                                정보/이벤트 SMS 수신에 동의합니다. </label>
+                        </div>
+                        <div class="input-group mb-5" style="height: 34px">
+                            <div class="data-mdb-input-init form-outline"
+                                 data-mdb-input-init>
+                                <input type="text" id="inputZipCodeForm" name="editZipCode"
+                                       class="form-control active" value="${member.zipCode}"
+                                       aria-describedby="button-addon" required/>
+                                <label class="form-label"
+                                       for="inputZipCodeForm">우편번호</label>
+                                <div class="invalid-feedback" style="margin: 0">우편번호를
+                                    입력해주세요
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-sm col-2"
+                                    type="button" id="button-addon" data-mdb-ripple-init
+                                    onclick="find_address()"
+                                    data-mdb-ripple-color="dark">
+                                <p class="m-auto">
+                                    우편번호 찾기
+                                </p>
                             </button>
                         </div>
+
+                        <div class="data-mdb-input-init form-outline mb-5"
+                             data-mdb-input-init>
+                            <input type="text" id="inputAddressForm" name="editAddress"
+                                   class="form-control active" value="${member.address}"
+                                   aria-describedby="button-addon" required/>
+                            <label class="form-label"
+                                   for="inputAddressForm">주소</label>
+                            <div class="invalid-feedback">주소를 입력해주세요</div>
+                        </div>
+                        <div class="input-group">
+                            <div class="data-mdb-input-init form-outline mb-5"
+                                 data-mdb-input-init>
+                                <input type="text" id="inputDetailedAddressForm"
+                                       name="editDetailedAddress" value="${member.detailedAddress}"
+                                       class="form-control"
+                                       aria-describedby="button-addon" required/>
+                                <label class="form-label"
+                                       for="inputDetailedAddressForm">상세주소</label>
+                                <div class="invalid-feedback" style="margin: 0">상세주소를
+                                    입력해주세요
+                                </div>
+                            </div>
+                            <div class="row-cols-10">
+                                <div class="data-mdb-input-init form-outline mb-5"
+                                     data-mdb-input-init>
+                                    <input type="text" id="inputExtraAddressForm"
+                                           name="editExtraAddress" value="${member.extraAddress}"
+                                           class="form-control active"
+                                           aria-describedby="button-addon"/>
+                                    <label class="form-label"
+                                           for="inputExtraAddressForm">참고항목</label>
+                                </div>
+                            </div>
+                        </div>
                     </form>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit" form="updateMember" data-mdb-ripple-init>수정하기</button>
+                    </div>
                 </div>
+                <%--User Input Form--%>
             </div>
         </div>
     </div>
@@ -559,20 +667,21 @@
 </footer>
 <%--Footer--%>
 <%--Script--%>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-
-</script>
+<%--API--%>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src='../js/bootstrap.bundle.min.js'></script>
-<script src="../js/day-night.js"></script>
-<script src="../js/swiper.js"></script>
-<script src="../js/form-validate.js"></script>
-
-<!-- MDB -->
 <script
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
 ></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+
+<%--CUSTOM--%>
+<script src="../js/day-night.js"></script>
+<script src="../js/swiper.js"></script>
+<script src="../js/form-validate.js"></script>
+<script src="../js/kakao-find-address.js"></script>
+
 </body>
 </html>
