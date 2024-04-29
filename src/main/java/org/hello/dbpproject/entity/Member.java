@@ -1,6 +1,8 @@
 package org.hello.dbpproject.entity;
 
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable {
 
   private String email;
   private String id;

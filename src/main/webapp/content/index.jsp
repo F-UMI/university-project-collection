@@ -1,4 +1,6 @@
-<%--
+<%@ page import="org.hello.dbpproject.entity.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.hello.dbpproject.Repository.ProductRepository" %><%--
   Created by IntelliJ IDEA.
   User: USER
   Date: 2024-04-06
@@ -37,14 +39,17 @@
 <body style="overflow-x: hidden">
 <%--JSP--%>
 <%
+    ProductRepository productRepository = ProductRepository.getInstance();
     session.getAttribute("member");
-    System.out.println(session.getAttribute("member"));
+    System.out.println("---INDEX.jsp---");
+    System.out.println("현재 사용자: " + session.getAttribute("member"));
+    System.out.println();
 %>
 
 <%--Nav--%>
 <nav class="navbar navbar-expand-lg shadow sticky-top ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/content/index.jsp">
             <img src="../images/logo.png" alt="Drips" width="64" height="60">
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -97,7 +102,7 @@
                                                     <figcaption
                                                             class="blockquote-footer text-center">
                                                         서울특별시 마포구 성지길 58 1층
-                                                        <a href="pastelCoffeeWorks.jsp"
+                                                        <a href="PastelCoffeeWorks.jsp"
                                                            class="stretched-link"></a>
                                                     </figcaption>
                                                 </figure>
@@ -116,7 +121,7 @@
                                                     <figcaption
                                                             class="blockquote-footer text-center">
                                                         서울특별시 성동구 연무장3길 6
-                                                        <a href="peerCoffee.jsp"
+                                                        <a href="PeerCoffee.jsp"
                                                            class="stretched-link"></a>
                                                     </figcaption>
                                                 </figure>
@@ -135,7 +140,7 @@
                                                     <figcaption
                                                             class="blockquote-footer text-center">
                                                         경기도 수원시 영통구 하동 975-2
-                                                        <a href="coffeeHeureum.jsp"
+                                                        <a href="CoffeeHeureum.jsp"
                                                            class="stretched-link"></a>
                                                     </figcaption>
                                                 </figure>
@@ -149,164 +154,14 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                       data-bs-auto-close="outside">Multilevel</a>
+                       data-bs-auto-close="outside">Products</a>
                     <ul class="dropdown-menu shadow">
-                        <li><a class="dropdown-item" href="#">Gallery</a></li>
-                        <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                        <li class="dropstart">
-                            <a href="#" class="dropdown-item dropdown-toggle"
-                               data-bs-toggle="dropdown">Submenu
-                                Left</a>
-                            <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href="#"> Third level 1</a></li>
-                                <li><a class="dropdown-item" href="#"> Third level 2</a></li>
-                                <li><a class="dropdown-item" href="#"> Third level 3</a></li>
-                                <li><a class="dropdown-item" href="#"> Third level 4</a></li>
-                                <li><a class="dropdown-item" href="#"> Third level 5</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropend">
-                            <a href="#" class="dropdown-item dropdown-toggle"
-                               data-bs-toggle="dropdown"
-                               data-bs-auto-close="outside">Submenu Right</a>
-                            <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href="#"> Second level 1</a></li>
-                                <li><a class="dropdown-item" href="#"> Second level 2</a></li>
-                                <li><a class="dropdown-item" href="#"> Second level 3</a></li>
-                                <li class="dropend">
-                                    <a href="#" class="dropdown-item dropdown-toggle"
-                                       data-bs-toggle="dropdown"
-                                       data-bs-auto-close="outside">Let's go deeper!</a>
-                                    <ul class="dropdown-menu dropdown-submenu shadow">
-                                        <li><a class="dropdown-item" href="#"> Third level 1</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#"> Third level 2</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#"> Third level 3</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#"> Third level 4</a>
-                                        </li>
-                                        <li class="dropend">
-                                            <a href="#" class="dropdown-item dropdown-toggle"
-                                               data-bs-toggle="dropdown">Still
-                                                don't have enough? Go much deeper!</a>
-                                            <ul class="dropdown-menu dropdown-submenu shadow">
-                                                <li><a class="dropdown-item" href="#"> Third level
-                                                    1</a></li>
-                                                <li><a class="dropdown-item" href="#"> Third level
-                                                    2</a></li>
-                                                <li><a class="dropdown-item" href="#"> Third level
-                                                    3</a></li>
-                                                <li><a class="dropdown-item" href="#"> Third level
-                                                    4</a></li>
-                                                <li><a class="dropdown-item" href="#"> Third level
-                                                    5</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a class="dropdown-item" href="#"> Third level 5</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/content/drip-bag.jsp">DripBag</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/content/supplies.jsp">Supplies</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown dropdown-mega position-static">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                       data-bs-auto-close="outside">Megamenu</a>
-                    <div class="dropdown-menu shadow">
-                        <div class="mega-content px-4">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Pages</h5>
-                                        <div class="list-group">
-                                            <a class="list-group-item" href="#">Accomodations</a>
-                                            <a class="list-group-item" href="#">Terms &
-                                                Conditions</a>
-                                            <a class="list-group-item" href="#">Privacy</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Card</h5>
-                                        <div class="card">
-                                            <img src="https://via.placeholder.com/320x180"
-                                                 class="img-fluid" alt="image">
-                                            <div class="card-body">
-                                                <p class="card-text">Some quick example text to
-                                                    build on the card title and
-                                                    make up the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Lot of Pages</h5>
-                                        <p>Lorem ipsum dolo sit achmet muhamed borlan de irtka.
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-3 py-4">
-                                        <h5>Damn, so many</h5>
-                                        <div class="list-group">
-                                            <a class="list-group-item" href="#">Accomodations</a>
-                                            <a class="list-group-item" href="#">Terms &
-                                                Conditions</a>
-                                            <a class="list-group-item" href="#">Privacy</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item dropdown dropdown-mega position-static">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                       data-bs-auto-close="outside">Megamenu</a>
-                    <div class="dropdown-menu shadow">
-                        <div class="mega-content px-4">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Pages</h5>
-                                        <div class="list-group">
-                                            <a class="list-group-item" href="#">Accomodations</a>
-                                            <a class="list-group-item" href="#">Terms &
-                                                Conditions</a>
-                                            <a class="list-group-item" href="#">Privacy</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <div class="card">
-                                            <img src="https://via.placeholder.com/320x180"
-                                                 class="img-fluid" alt="image">
-                                            <div class="card-body">
-                                                <p class="card-text">Some quick example text to
-                                                    build on the card title and
-                                                    make up the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Lot of Pages</h5>
-                                        <p>Lorem ipsum dolo sit achmet muhamed borlan de irtka.
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-3 py-4">
-                                        <h5>Damn, so many</h5>
-                                        <div class="list-group">
-                                            <a class="list-group-item" href="#">Accomodations</a>
-                                            <a class="list-group-item" href="#">Terms &
-                                                Conditions</a>
-                                            <a class="list-group-item" href="#">Privacy</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/content/addProduct.jsp">Add Product</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -377,7 +232,7 @@
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
-    <div class="autoplay-progress">
+    <div class="autoplay-progress bg-transparent">
         <svg viewBox="0 0 48 48">
             <circle cx="24" cy="24" r="20"></circle>
         </svg>
@@ -394,182 +249,105 @@
     <p id="custom-h3">
         매월 새롭게 소개하는 시즈널 커피
     </p>
-    <div class="row row-cols-1 row-cols-md-3 g-5 ms-4 me-4">
-        <div class="col pd-col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
+
+    <div class="row row-cols-auto g-5 mt-5 ms-3">
+        <%
+            List<Product> seansonalCoffeeProductList = productRepository.getProductByCondition("Seasonal");
+            for (Product product : seansonalCoffeeProductList) {
+                request.setAttribute("productId", product.getProductId());
+        %>
+        <div class="col pd-col ms-5">
+            <div class="card bg-image roaster-card-img bg-dark text-white hover-overlay hover-zoom" data-mdb-ripple-init
+                 data-mdb-ripple-color="#525740">
+                <img src="<%= product.getImgPath().get(0)%>" class="card-img" alt="..." style="width: 350px">
+
+                <div class="mask" style="background-color: hsla(0, 0%, 2%, 0.8)">
+                    <div class="card-img-overlay">
+                        <h3 class="card-title"><%= product.getProductName() %>
+                        </h3> <br>
+                        <p class="card-text mb-5"><%=product.getProductDescription() %>
+                        </p> <br>
+
+                        <p class="card-text position-absolute bottom-0 start-0 ms-3 mb-3">
+                            Cup Note : <br>
+                            <%= product.getCupNote() %>
+                        </p>
+                    </div>
+                    <a href="${pageContext.request.contextPath}/content/productInfo.jsp?id=<%= product.getProductId()%> "
+                       class="stretched-link"></a>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
+        <%
+            }
+        %>
     </div>
+</div>
+</div>
 </div>
 <%--SESONAL--%>
 
-<%--SEASONLESS--%>
+<%--AllSeason--%>
 <div class="pd container-fluid">
     <div class="pd-title">
-        SEASONLESS
+        ALL SEASON
     </div>
     <p>
         로스터리의 시그니처 메뉴들
     </p>
-    <div class="row row-cols-1 row-cols-md-3 g-5 ms-4 me-4">
-        <div class="col pd-col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
+    <div>
+        <div class="row w-100">
+            <div class="row row-cols-auto g-5 ms-3 mt-5">
+                <%
+                    List<Product> seansonlessCoffeeProductList = productRepository.getProductByCondition("AllSeason");
+                    for (Product product : seansonlessCoffeeProductList) {
+                        request.setAttribute("productId", product.getProductId());
+                %>
+                <div class="col pd-col ms-5">
+                    <div class="card bg-image roaster-card-img bg-dark text-white hover-overlay hover-zoom" data-mdb-ripple-init
+                         data-mdb-ripple-color="#525740">
+                        <img src="<%= product.getImgPath().get(0)%>" class="card-img" alt="..." style="width: 350px">
+                        <div class="mask" style="background-color: hsla(0, 0%, 2%, 0.8)">
+                            <div class="card-img-overlay">
+                                <h3 class="card-title"><%= product.getProductName() %>
+                                </h3> <br>
+                                <p class="card-text mb-5"><%=product.getProductDescription() %>
+                                </p> <br>
+
+                                <p class="card-text position-absolute bottom-0 start-0 ms-3 mb-3">
+                                    Cup Note : <br>
+                                    <%= product.getCupNote() %>
+                                </p>
+                            </div>
+                            <a href="${pageContext.request.contextPath}/content/productInfo.jsp?id=<%= product.getProductId()%> "
+                               class="stretched-link"></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
+                <%
+                    }
+                %></
+            >
         </div>
     </div>
 </div>
-<%--SEASONLESS--%>
+</div>
+<%--AllSeason--%>
 
 <%--DripBag--%>
 <div class="container-fluid p-0">
     <div class="img">
         <img src="../images/drip_bag.jpg" CLASS="img-fluid w-100" alt="">
         <div class="card-img-overlay w-50 ms-4 me-5 mt-5">
-            <div class="pd-title text-white">
+            <div class="pd-title mb-3 text-white">
                 DRIP-BAG
             </div>
-            <p class="pd-link mb-3 text-white">
+            <p class="pd-link mb-5 text-white">
                 스페셜티 커피를 더욱 간편하게 즐겨보세요. <br>
                 다양한 로스터리가 제공하는 드립백을 골라보세요. <br>
                 집이나 사무실에 두거나, 선물하기도 좋습니다.
             </p>
-            <button class="custom-btn ms-5"><span>Hover me!</span></button>
+            <button class="custom-btn mt-3 ms-5"><a href="content/drip-bag.jsp" class="link-light"><span>  Link  </span></a></button>
         </div>
     </div>
     <%--DripBag--%>
@@ -580,181 +358,105 @@
         COFFEE SUPPLIES
     </div>
     <p>
-        커피 용품
+        커피 용품 (추가 예정)
     </p>
-    <div class="row row-cols-1 row-cols-md-3 g-5 ms-4 me-4">
-        <div class="col pd-col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../images/beans.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a little bit
-                        longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 <%--CoffeeSupplies--%>
 
-<%--Company--%>
+<%--Footer--%>
+<footer class="text-center text-lg-start bg-body-tertiary text-muted pt-5">
+    <%-- Section: Links  --%>
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+            <%-- Grid row --%>
+            <div class="row mt-3">
+                <%-- Grid column --%>
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <%-- Content --%>
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3"></i> 201958110 신윤섭
+                    </h6>
+                    <p>
+                        DataBase Programming
+                    </p>
+                </div>
+                <%-- Grid column --%>
 
-<div class="pd container-fluid">
-    <div class="pd-title">
-        COOPERATION
+                <%-- Grid column --%>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <%-- Links --%>
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Roastery
+                    </h6>
+                    <p>
+                        <a href="/content/lowkey.jsp" class="text-reset">lowkey</a>
+                    </p>
+                    <p>
+                        <a href="/content/PastelCoffeeWorks.jsp" class="text-reset">Pastel Coffee Works</a>
+                    </p>
+                    <p>
+                        <a href="/content/PeerCoffee.jsp" class="text-reset">Peer Coffee</a>
+                    </p>
+                    <p>
+                        <a href="/content/CoffeeHeureum.jsp" class="text-reset">Coffee Heureum</a>
+                    </p>
+                </div>
+                <%-- Grid column --%>
+
+                <%-- Grid column --%>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <%-- Links --%>
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Products
+                    </h6>
+                    <p>
+                        <a href="content/drip-bag.jsp" class="text-reset">Drip Bag</a>
+                    </p>
+                    <p>
+                        <a href="/content/supplies.jsp" class="text-reset">Supplies</a>
+                    </p>
+                </div>
+                <%-- Grid column --%>
+
+                <%-- Grid column --%>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <%-- Links --%>
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    <p><i class="fas fa-home me-3"></i>한신대학교 장준하기념관 18201-1</p>
+                    <p>
+                        <i class="fas fa-envelope me-3"></i>
+                        zksdbstjq@hs.ac.kr
+                    </p>
+                    <p><i class="fas fa-phone me-3"></i>010-1234-5679</p>
+                </div>
+                <%-- Grid column --%>
+            </div>
+            <%-- Grid row --%>
+        </div>
+    </section>
+    <%-- Section: Links  --%>
+
+    <%-- Copyright --%>
+    <div class="text-center p-4 bg-black text-light">
+        © 2024 Copyright:
+        <a class="text-reset fw-bold link-light" href="https://github.com/F-UMI">Shin Yun Seop</a>
     </div>
-    <p>
-        함께 하는 매장들
-    </p>
-</div>
-<%--Company--%>
-
+    <%-- Copyright --%>
+</footer>
 <%--Footer--%>
-<div class="container-fluid">
-    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-        <div class="col mb-3">
-            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
-            <p class="text-muted">© 2023 SHIN YUN SEOP All rights reserve</p>
-        </div>
-
-        <div class="col mb-3">
-
-        </div>
-
-        <div class="col mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="content/home.jsp"
-                                             class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="content/features.jsp"
-                                             class="nav-link p-0 text-muted">Features</a>
-                </li>
-                <li class="nav-item mb-2"><a href="content/pricing.jsp"
-                                             class="nav-link p-0 text-muted">Pricing</a>
-                </li>
-                <li class="nav-item mb-2"><a href="content/faqs.jsp"
-                                             class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="content/about.jsp"
-                                             class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-        </div>
-
-        <div class="col mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="content/home.jsp"
-                                             class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="content/features.jsp"
-                                             class="nav-link p-0 text-muted">Features</a>
-                </li>
-                <li class="nav-item mb-2"><a href="content/pricing.jsp"
-                                             class="nav-link p-0 text-muted">Pricing</a>
-                </li>
-                <li class="nav-item mb-2"><a href="content/faqs.jsp"
-                                             class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="content/about.jsp"
-                                             class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-        </div>
-
-        <div class="col mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="content/home.jsp"
-                                             class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="content/features.jsp"
-                                             class="nav-link p-0 text-muted">Features</a>
-                </li>
-                <li class="nav-item mb-2"><a href="content/pricing.jsp"
-                                             class="nav-link p-0 text-muted">Pricing</a>
-                </li>
-                <li class="nav-item mb-2"><a href="content/faqs.jsp"
-                                             class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="content/about.jsp"
-                                             class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-        </div>
-    </footer>
-</div>
-<%--Footer--%>
-<!-- Script -->
+<%-- Script --%>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <script src="../js/day-night.js"></script>
 <script src="../js/navbar.js"></script>
 <script src="../js/swiper.js"></script>
 
-<!-- MDB -->
-<script
-        type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+<%-- MDB --%>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
 ></script>
+<%-- MDB --%>
+
+<%-- Script --%>
 
 </body>
 </html>

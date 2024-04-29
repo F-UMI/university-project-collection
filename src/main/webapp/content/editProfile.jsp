@@ -35,6 +35,7 @@
 </head>
 <body>
 <jsp:useBean id="member" class="org.hello.dbpproject.entity.Member" scope="session"/>
+<jsp:setProperty name="member" property="*"/>
 
 
 <%--Nav--%>
@@ -93,7 +94,7 @@
                                                     <figcaption
                                                             class="blockquote-footer text-center">
                                                         서울특별시 마포구 성지길 58 1층
-                                                        <a href="pastelCoffeeWorks.jsp"
+                                                        <a href="PastelCoffeeWorks.jsp"
                                                            class="stretched-link"></a>
                                                     </figcaption>
                                                 </figure>
@@ -112,7 +113,7 @@
                                                     <figcaption
                                                             class="blockquote-footer text-center">
                                                         서울특별시 성동구 연무장3길 6
-                                                        <a href="peerCoffee.jsp"
+                                                        <a href="PeerCoffee.jsp"
                                                            class="stretched-link"></a>
                                                     </figcaption>
                                                 </figure>
@@ -131,7 +132,7 @@
                                                     <figcaption
                                                             class="blockquote-footer text-center">
                                                         경기도 수원시 영통구 하동 975-2
-                                                        <a href="coffeeHeureum.jsp"
+                                                        <a href="CoffeeHeureum.jsp"
                                                            class="stretched-link"></a>
                                                     </figcaption>
                                                 </figure>
@@ -145,165 +146,16 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                       data-bs-auto-close="outside">Multilevel</a>
+                       data-bs-auto-close="outside">Products</a>
                     <ul class="dropdown-menu shadow">
-                        <li><a class="dropdown-item" href="#">Gallery</a></li>
-                        <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                        <li class="dropstart">
-                            <a href="#" class="dropdown-item dropdown-toggle"
-                               data-bs-toggle="dropdown">Submenu
-                                Left</a>
-                            <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href="#"> Third level 1</a></li>
-                                <li><a class="dropdown-item" href="#"> Third level 2</a></li>
-                                <li><a class="dropdown-item" href="#"> Third level 3</a></li>
-                                <li><a class="dropdown-item" href="#"> Third level 4</a></li>
-                                <li><a class="dropdown-item" href="#"> Third level 5</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropend">
-                            <a href="#" class="dropdown-item dropdown-toggle"
-                               data-bs-toggle="dropdown"
-                               data-bs-auto-close="outside">Submenu Right</a>
-                            <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href="#"> Second level 1</a></li>
-                                <li><a class="dropdown-item" href="#"> Second level 2</a></li>
-                                <li><a class="dropdown-item" href="#"> Second level 3</a></li>
-                                <li class="dropend">
-                                    <a href="#" class="dropdown-item dropdown-toggle"
-                                       data-bs-toggle="dropdown"
-                                       data-bs-auto-close="outside">Let's go deeper!</a>
-                                    <ul class="dropdown-menu dropdown-submenu shadow">
-                                        <li><a class="dropdown-item" href="#"> Third level 1</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#"> Third level 2</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#"> Third level 3</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#"> Third level 4</a>
-                                        </li>
-                                        <li class="dropend">
-                                            <a href="#" class="dropdown-item dropdown-toggle"
-                                               data-bs-toggle="dropdown">Still
-                                                don't have enough? Go much deeper!</a>
-                                            <ul class="dropdown-menu dropdown-submenu shadow">
-                                                <li><a class="dropdown-item" href="#"> Third level
-                                                    1</a></li>
-                                                <li><a class="dropdown-item" href="#"> Third level
-                                                    2</a></li>
-                                                <li><a class="dropdown-item" href="#"> Third level
-                                                    3</a></li>
-                                                <li><a class="dropdown-item" href="#"> Third level
-                                                    4</a></li>
-                                                <li><a class="dropdown-item" href="#"> Third level
-                                                    5</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a class="dropdown-item" href="#"> Third level 5</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/content/drip-bag.jsp">DripBag</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/content/supplies.jsp">Supplies</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/content/addProduct.jsp">Add Product</a>
                 </li>
-                <li class="nav-item dropdown dropdown-mega position-static">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                       data-bs-auto-close="outside">Megamenu</a>
-                    <div class="dropdown-menu shadow">
-                        <div class="mega-content px-4">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Pages</h5>
-                                        <div class="list-group">
-                                            <a class="list-group-item" href="#">Accomodations</a>
-                                            <a class="list-group-item" href="#">Terms &
-                                                Conditions</a>
-                                            <a class="list-group-item" href="#">Privacy</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Card</h5>
-                                        <div class="card">
-                                            <img src="https://via.placeholder.com/320x180"
-                                                 class="img-fluid" alt="image">
-                                            <div class="card-body">
-                                                <p class="card-text">Some quick example text to
-                                                    build on the card title and
-                                                    make up the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Lot of Pages</h5>
-                                        <p>Lorem ipsum dolo sit achmet muhamed borlan de irtka.
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-3 py-4">
-                                        <h5>Damn, so many</h5>
-                                        <div class="list-group">
-                                            <a class="list-group-item" href="#">Accomodations</a>
-                                            <a class="list-group-item" href="#">Terms &
-                                                Conditions</a>
-                                            <a class="list-group-item" href="#">Privacy</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item dropdown dropdown-mega position-static">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                       data-bs-auto-close="outside">Megamenu</a>
-                    <div class="dropdown-menu shadow">
-                        <div class="mega-content px-4">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Pages</h5>
-                                        <div class="list-group">
-                                            <a class="list-group-item" href="#">Accomodations</a>
-                                            <a class="list-group-item" href="#">Terms &
-                                                Conditions</a>
-                                            <a class="list-group-item" href="#">Privacy</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <div class="card">
-                                            <img src="https://via.placeholder.com/320x180"
-                                                 class="img-fluid" alt="image">
-                                            <div class="card-body">
-                                                <p class="card-text">Some quick example text to
-                                                    build on the card title and
-                                                    make up the bulk of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-md-3 py-4">
-                                        <h5>Lot of Pages</h5>
-                                        <p>Lorem ipsum dolo sit achmet muhamed borlan de irtka.
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-3 py-4">
-                                        <h5>Damn, so many</h5>
-                                        <div class="list-group">
-                                            <a class="list-group-item" href="#">Accomodations</a>
-                                            <a class="list-group-item" href="#">Terms &
-                                                Conditions</a>
-                                            <a class="list-group-item" href="#">Privacy</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="user-info ms-2 m-auto">
@@ -355,14 +207,14 @@
 <%--Nav--%>
 
 
-<!-- Section: Design Block -->
+<%-- Section: Design Block --%>
 <section class="text-center">
-    <!-- Background image -->
+    <%-- Background image --%>
     <div class="p-5 bg-image object-cover" style="
-        background-image: url('../images/lowkey/swiper.jpg');
+        background-image: url('../images/heureum/swiper.jpg');
         height: 120vh;
         "></div>
-    <!-- Background image -->
+    <%-- Background image --%>
 
     <div class="d-flex card mx-4 mx-md-5 shadow-5-strong align-items-center justify-content-md-center w-50 position-absolute"
          style="
@@ -447,7 +299,7 @@
                                    for="inputEmailForm">Email</label>
                             <div class="invalid-feedback">정확한 이메일을 입력해주세요</div>
                         </div>
-                        <!-- Checkbox -->
+                        <%-- Checkbox --%>
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" value=""
                                    id="allowingSMSReceives"/>
@@ -465,7 +317,7 @@
                                    for="inputPhoneNumberForm">Phone</label>
                             <div class="invalid-feedback">정확한 전화번호를 입력해주세요</div>
                         </div>
-                        <!-- Checkbox -->
+                        <%-- Checkbox --%>
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" value=""
                                    id="allowingEmailReceives"/>
@@ -485,7 +337,7 @@
                                     입력해주세요
                                 </div>
                             </div>
-                            <button class="btn btn-primary btn-sm col-2"
+                            <button class="btn btn-primary btn-sm col-2 p-0"
                                     type="button" id="button-addon" data-mdb-ripple-init
                                     onclick="find_address()"
                                     data-mdb-ripple-color="dark">
@@ -539,131 +391,88 @@
         </div>
     </div>
 </section>
-<!-- Section: Design Block -->
+<%-- Section: Design Block --%>
 
 
 <%--Footer--%>
 <footer class="text-center text-lg-start bg-body-tertiary text-muted pt-5">
-    <!-- Section: Social media -->
-    <section
-            class="d-flex justify-content-center justify-content-lg-between p-5 border-bottom mt-5">
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
-        </div>
-        <!-- Left -->
-
-        <!-- Right -->
-        <div>
-            <a href="#" class="me-4 text-reset">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="me-4 text-reset">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="me-4 text-reset">
-                <i class="fab fa-google"></i>
-            </a>
-            <a href="#" class="me-4 text-reset">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="me-4 text-reset">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#" class="me-4 text-reset">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
+    <%-- Section: Links  --%>
     <section class="">
         <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
+            <%-- Grid row --%>
             <div class="row mt-3">
-                <!-- Grid column -->
+                <%-- Grid column --%>
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <!-- Content -->
+                    <%-- Content --%>
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i>Company name
+                        <i class="fas fa-gem me-3"></i> 201958110 신윤섭
                     </h6>
                     <p>
-                        Here you can use rows and columns to organize your footer content. Lorem
-                        ipsum
-                        dolor sit amet, consectetur adipisicing elit.
+                        DataBase Programming
                     </p>
                 </div>
-                <!-- Grid column -->
+                <%-- Grid column --%>
 
-                <!-- Grid column -->
+                <%-- Grid column --%>
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
+                    <%-- Links --%>
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Roastery
+                    </h6>
+                    <p>
+                        <a href="/content/lowkey.jsp" class="text-reset">lowkey</a>
+                    </p>
+                    <p>
+                        <a href="/content/PastelCoffeeWorks.jsp" class="text-reset">Pastel Coffee Works</a>
+                    </p>
+                    <p>
+                        <a href="/content/PeerCoffee.jsp" class="text-reset">Peer Coffee</a>
+                    </p>
+                    <p>
+                        <a href="/content/CoffeeHeureum.jsp" class="text-reset">Coffee Heureum</a>
+                    </p>
+                </div>
+                <%-- Grid column --%>
+
+                <%-- Grid column --%>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <%-- Links --%>
                     <h6 class="text-uppercase fw-bold mb-4">
                         Products
                     </h6>
                     <p>
-                        <a href="#!" class="text-reset">Angular</a>
+                        <a href="content/drip-bag.jsp" class="text-reset">Drip Bag</a>
                     </p>
                     <p>
-                        <a href="#!" class="text-reset">React</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Vue</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Laravel</a>
+                        <a href="/content/supplies.jsp" class="text-reset">Supplies</a>
                     </p>
                 </div>
-                <!-- Grid column -->
+                <%-- Grid column --%>
 
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Useful links
-                    </h6>
-                    <p>
-                        <a href="#!" class="text-reset">Pricing</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Settings</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Orders</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Help</a>
-                    </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
+                <%-- Grid column --%>
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <!-- Links -->
+                    <%-- Links --%>
                     <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                    <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                    <p><i class="fas fa-home me-3"></i>한신대학교 장준하기념관 18201-1</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
-                        info@example.com
+                        zksdbstjq@hs.ac.kr
                     </p>
-                    <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                    <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                    <p><i class="fas fa-phone me-3"></i>010-1234-5679</p>
                 </div>
-                <!-- Grid column -->
+                <%-- Grid column --%>
             </div>
-            <!-- Grid row -->
+            <%-- Grid row --%>
         </div>
     </section>
-    <!-- Section: Links  -->
+    <%-- Section: Links  --%>
 
-    <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <%-- Copyright --%>
+    <div class="text-center p-4 bg-black text-light">
+        © 2024 Copyright:
+        <a class="text-reset fw-bold link-light" href="https://github.com/F-UMI">Shin Yun Seop</a>
     </div>
-    <!-- Copyright -->
+    <%-- Copyright --%>
 </footer>
 <%--Footer--%>
 <%--Script--%>

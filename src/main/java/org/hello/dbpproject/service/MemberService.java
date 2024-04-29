@@ -14,5 +14,9 @@ public interface MemberService {
 
   void updateMemberInfo(HttpServletRequest request, HttpServletResponse response) throws IOException;
 
-  void loginMember(HttpServletRequest req, HttpServletResponse res) throws IOException;
+  void loginMember(HttpServletRequest request, HttpServletResponse response) throws IOException;
+
+  void registrationProduct(HttpServletRequest request, HttpServletResponse response) throws IOException;
+
+  void addProductToCart(HttpServletRequest req, HttpServletResponse res) throws IOException;
 }

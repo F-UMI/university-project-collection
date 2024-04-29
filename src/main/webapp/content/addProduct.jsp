@@ -34,9 +34,9 @@
 </head>
 <body>
 <%--Nav--%>
-<nav class="navbar navbar-expand-lg shadow sticky-top shadow-sm">
+<nav class="navbar navbar-expand-lg shadow sticky-top ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="./index.jsp">
+        <a class="navbar-brand" href="/content/index.jsp">
             <img src="../images/logo.png" alt="Drips" width="64" height="60">
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -50,7 +50,7 @@
             </div>
         </button>
         <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav nav-underline mr-auto mb-2 mb-lg-0 ">
+            <ul class="navbar-nav nav-underline mr-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown dropdown-mega position-static">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                        data-bs-auto-close="outside">Roasters</a>
@@ -61,7 +61,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/lowkey/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top " alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -80,7 +80,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/pastel/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -99,7 +99,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/peer/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -118,7 +118,7 @@
                                     <div class="col-12 col-sm-12 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/heureum/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -150,10 +150,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/content/addProduct.jsp">Add Product</a>
                 </li>
-
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-theme nav-item">
+                <li class="user-info ms-2 m-auto">
+                    <c:if test="${member.status}">
+                        <p class="m-0">
+                            <c:out value="${member.name}"/>
+                            님 어서오세요!
+                        </p>
+                    </c:if>
+                </li>
+                <li class="nav-theme ms-2">
                     <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -162,8 +169,10 @@
                         </svg>
                     </a>
                 </li>
-                <li class="nav-user">
-                    <a class="nav-link icons" href="${pageContext.request.contextPath}/profile" tabindex="-1"
+                <li class="nav-user ms-1">
+                    <a class="nav-link icons" href="/profile"
+                       tabindex="-1"
+                       data-bs-toggle-theme="true"
                        data-bs-toggle="tooltip" data-bs-placement="bottom"
                        data-bs-title="Login"
                        aria-disabled="true">
@@ -175,8 +184,8 @@
                         </svg>
                     </a>
                 </li>
-                <li class="nav-cart">
-                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart" tabindex="-1"
+                <li class="nav-cart ms-1">
+                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
@@ -192,19 +201,18 @@
 <%--Nav--%>
 
 
-
 <%-- Section: Design Block --%>
 <section class="text-center">
     <%-- Background image --%>
     <div class="p-5 bg-image object-cover " style="
-
-        background-image: url('../images/lowkey/swiper.jpg');
-        height: 91vh;
+        background-image: url('../images/peer/swiper.jpg');
+        height: 120vh;
         "></div>
     <%-- Background image --%>
+
     <div class="d-flex card mx-4 mx-md-5 shadow-5-strong align-items-center justify-content-md-center w-50 position-absolute"
          style="
-        margin-top: -700px;
+        margin-top: -1000px;
         left: 22%;
         background: hsla(0, 0%, 100%, 0.2);
         backdrop-filter: blur(30px);
@@ -212,54 +220,120 @@
         <div class="card-body py-5 px-md-5 w-100 m-auto">
             <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-lg-8 ">
-                    <h2 class="fw-bold mb-5">- Login -</h2>
+                    <h2 class="fw-bold mb-5">- 상품 등록 -</h2>
                     <form class="needs-validation"
-                          action="${pageContext.request.contextPath}/login"
+                          action="${pageContext.request.contextPath}/addProduct"
                           method="post" novalidate>
-                        <%-- Email input --%>
-                        <div data-mdb-input-init class="form-outline mb-5 ">
-                            <input type="text" id="loginId" class="form-control" name="id"
-                                   required/>
-                            <label class="form-label" for="loginId">ID</label>
-                            <div class="invalid-feedback">ID를 입력해주세요</div>
-                        </div>
-                        <%-- Password input --%>
-                        <div data-mdb-input-init class="form-outline mb-5">
-                            <input type="password" id="loginPassword" class="form-control"
-                                   name="password"
-                                   required/>
-                            <label class="form-label" for="loginPassword">Password</label>
-                            <div class="invalid-feedback">Password를 입력해주세요</div>
-                        </div>
-
-
-                        <%-- 2 column grid layout for inline styling --%>
-                        <div class="row mb-4">
-                            <div class="col d-flex justify-content-center">
-                                <%-- Checkbox --%>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                           id="form2Example31" checked/>
-                                    <label class="form-check-label" for="form2Example31"> Remember
-                                        me </label>
-                                </div>
+                        <div data-mdb-input-init class="form-outline mb-3 ">
+                            <h6 class="mb-2 pb-1">Roastery</h6>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio"
+                                       name="productRoastery" id="PeerCoffee" value="PeerCoffee"
+                                       checked
+                                />
+                                <label class="form-check-label" for="PeerCoffee">피어커피</label>
                             </div>
-
-<%--                            <div class="col">
-                                &lt;%&ndash; Simple link &ndash;%&gt;
-                                <a href="#!">Forgot password?</a>
-                            </div>--%>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio"
+                                       name="productRoastery" id="lowkey" value="lowkey"
+                                />
+                                <label class="form-check-label" for="lowkey">로우키</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio"
+                                       name="productRoastery" id="PastelCoffeeWorks" value="PastelCoffeeWorks"
+                                />
+                                <label class="form-check-label" for="PastelCoffeeWorks">파스텔커피웍스</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio"
+                                       name="productRoastery" id="CoffeeHeureum" value="CoffeeHeureum"
+                                />
+                                <label class="form-check-label" for="CoffeeHeureum">커피흐름</label>
+                            </div>
+                        </div>
+                        <div data-mdb-input-init class="form-outline mb-3 ">
+                            <h6 class="mb-2 pb-1">Category</h6>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio"
+                                       name="productCategory" id="SingleOrigin" value="Single Origin"
+                                       checked
+                                />
+                                <label class="form-check-label" for="SingleOrigin">Single Origin</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio"
+                                       name="productCategory" id="Blend" value="Blend"
+                                />
+                                <label class="form-check-label" for="Blend">Blend</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio"
+                                       name="productCategory" id="DripBag" value="DripBag"
+                                />
+                                <label class="form-check-label" for="DripBag">DripBag</label>
+                            </div>
+                        </div>
+                        <div data-mdb-input-init class="form-outline mb-3 ">
+                            <h6 class="mb-2 pb-1">Season</h6>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio"
+                                       name="productCondition" id="Seasonal" value="Seasonal"
+                                       checked
+                                />
+                                <label class="form-check-label" for="SingleOrigin">Seasonal</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio"
+                                       name="productCondition" id="AllSeason" value="AllSeason"
+                                />
+                                <label class="form-check-label" for="AllSeason">All Season</label>
+                            </div>
                         </div>
 
+                        <div data-mdb-input-init class="form-outline mb-5">
+                            <input type="text" id="productName" class="form-control"
+                                   name="productName"
+                                   required/>
+                            <label class="form-label" for="productName">상품명</label>
+                            <div class="invalid-feedback">상품명을 입력해주세요</div>
+                        </div>
+                        <div data-mdb-input-init class="form-outline mb-5">
+                            <input type="text" id="productPrice" class="form-control"
+                                   name="productPrice"
+                                   required/>
+                            <label class="form-label" for="productPrice">가격</label>
+                            <div class="invalid-feedback">상품 가격을 입력해주세요</div>
+                        </div>
+                        <div data-mdb-input-init class="form-outline mb-5">
+                            <input type="text" id="productDescription" class="form-control"
+                                   name="productDescription"
+                                   required/>
+                            <label class="form-label" for="productDescription">설명</label>
+                            <div class="invalid-feedback">상품 설명을 입력해주세요</div>
+                        </div>
+                        <div data-mdb-input-init class="form-outline mb-5">
+                            <input type="text" id="productsInStock" class="form-control"
+                                   name="productsInStock"
+                                   required/>
+                            <label class="form-label" for="productsInStock">재고량</label>
+                            <div class="invalid-feedback">상품의 재고수를 입력해주세요</div>
+                        </div>
+                        <div data-mdb-input-init class="form-outline mb-5">
+                            <input type="text" id="cupNote" class="form-control"
+                                   name="cupNote"
+                                   required/>
+                            <label class="form-label" for="cupNote">Cup Note</label>
+                            <div class="invalid-feedback">CupNote를 입력해주세요</div>
+                        </div>
+                        <div data-mdb-input-init class="form-outline mb-5">
+                            <input type="file" class="form-control" aria-label="productImage"/>
+                            <div class="invalid-feedback">상품 사진을 넣어주세요!</div>
+                        </div>
                         <%-- Submit button --%>
                         <button type="submit"
-                                class="btn btn-primary btn-block mb-4 data-mdb-ripple-init">Sign in
+                                class="btn btn-primary btn-block mb-4 data-mdb-ripple-init">등록하기
                         </button>
-
-                        <%-- Register buttons --%>
-                        <div class="text-center">
-                            <p>Not a member? <a href="./register.jsp">Register</a></p>
-                        </div>
                     </form>
                 </div>
             </div>

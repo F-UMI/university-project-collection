@@ -28,7 +28,6 @@ public class ProfileServlet extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    memberService.searchMemberSessionInfo(request,response, PROFILE_URL);
   }
 }
     

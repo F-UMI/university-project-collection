@@ -1,9 +1,8 @@
 package org.hello.dbpproject.entity;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Product implements Serializable {
+public class ProductDAO {
 
   private String productCategory;
   private String productId;
@@ -14,23 +13,14 @@ public class Product implements Serializable {
   private long productsInStock;
   private String productCondition;
   private String cupNote;
-  private List<String> imgPath;
-  private int quantity;
+  private List<String> imagePath;
 
-  public int getQuantity() {
-    return quantity;
+  public List<String> getImagePath() {
+    return imagePath;
   }
 
-  public void setQuantity(int quantity) {
-    this.quantity = quantity;
-  }
-
-  public List<String> getImgPath() {
-    return imgPath;
-  }
-
-  public void setImgPath(List<String> imgPath) {
-    this.imgPath = imgPath;
+  public void setImagePath(List<String> imagePath) {
+    this.imagePath = imagePath;
   }
 
   public String getCupNote() {
@@ -39,6 +29,14 @@ public class Product implements Serializable {
 
   public void setCupNote(String cupNote) {
     this.cupNote = cupNote;
+  }
+
+  public String getProductCategory() {
+    return productCategory;
+  }
+
+  public void setProductCategory(String productCategory) {
+    this.productCategory = productCategory;
   }
 
   public String getProductId() {
@@ -81,14 +79,6 @@ public class Product implements Serializable {
     this.productRoastery = productRoastery;
   }
 
-  public String getProductCategory() {
-    return productCategory;
-  }
-
-  public void setProductCategory(String productCategory) {
-    this.productCategory = productCategory;
-  }
-
   public long getProductsInStock() {
     return productsInStock;
   }
@@ -105,25 +95,8 @@ public class Product implements Serializable {
     this.productCondition = productCondition;
   }
 
-  public Product() {
-  }
-
-  public Product(String productCategory, String productId, String productName, Integer productPrice, String productRoastery, long productsInStock,
-      String productCondition) {
-    this.productCategory = productCategory;
-    this.productId = productId;
-    this.productName = productName;
-    this.productPrice = productPrice;
-    this.productRoastery = productRoastery;
-    this.productsInStock = productsInStock;
-    this.productCondition = productCondition;
-  }
-
-
-
-  public Product(String productCategory, String productId, String productName, Integer productPrice, String productDescription,
-      String productRoastery,
-      long productsInStock, String productCondition, String cupNote, List<String> imgPath) {
+  public ProductDAO(String productCategory, String productId, String productName, Integer productPrice, String productDescription,
+      String productRoastery, long productsInStock, String productCondition, String cupNote, List<String> imagePath) {
     this.productCategory = productCategory;
     this.productId = productId;
     this.productName = productName;
@@ -133,12 +106,12 @@ public class Product implements Serializable {
     this.productsInStock = productsInStock;
     this.productCondition = productCondition;
     this.cupNote = cupNote;
-    this.imgPath = imgPath;
+    this.imagePath = imagePath;
   }
 
   @Override
   public String toString() {
-    return "Product{" +
+    return "ProductDAO{" +
         "productCategory='" + productCategory + '\'' +
         ", productId='" + productId + '\'' +
         ", productName='" + productName + '\'' +
@@ -148,7 +121,7 @@ public class Product implements Serializable {
         ", productsInStock=" + productsInStock +
         ", productCondition='" + productCondition + '\'' +
         ", cupNote='" + cupNote + '\'' +
-        ", imgPath=" + imgPath +
+        ", imagePath=" + imagePath +
         '}';
   }
 }

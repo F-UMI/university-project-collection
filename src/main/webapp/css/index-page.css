@@ -141,3 +141,24 @@
   top: 3px;
 }
 
+.title-font {
+  /*  font-family: "M PLUS 1 Code", monospace;*/
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.btn-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.button-minus .button-plus {
+  width: 36px;
+  height: 36px;
+}

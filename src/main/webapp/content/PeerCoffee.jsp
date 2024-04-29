@@ -1,4 +1,6 @@
-<%--
+<%@ page import="org.hello.dbpproject.entity.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.hello.dbpproject.Repository.ProductRepository" %><%--
   Created by IntelliJ IDEA.
   User: USER
   Date: 2024-04-06
@@ -20,6 +22,9 @@
     <link rel='stylesheet' href='../css/bootstrap/bootstrap.css'>
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/index-page.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/roster-page.css">
+
     <link
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
             rel="stylesheet"
@@ -31,10 +36,14 @@
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
+
 </head>
-<body>
+<body style="overflow-x: hidden">
+<jsp:useBean id="member" class="org.hello.dbpproject.entity.Member" scope="session"/>
+<jsp:useBean id="productRepository" class="org.hello.dbpproject.Repository.ProductRepository" scope="application"/>
+
 <%--Nav--%>
-<nav class="navbar navbar-expand-lg shadow sticky-top shadow-sm">
+<nav class="navbar navbar-expand-lg shadow sticky-top ">
     <div class="container-fluid">
         <a class="navbar-brand" href="./index.jsp">
             <img src="../images/logo.png" alt="Drips" width="64" height="60">
@@ -61,7 +70,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/lowkey/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top " alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -80,7 +89,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/pastel/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -99,7 +108,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/peer/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -118,7 +127,7 @@
                                     <div class="col-12 col-sm-12 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/heureum/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -150,10 +159,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/content/addProduct.jsp">Add Product</a>
                 </li>
-
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-theme nav-item">
+                <li class="user-info ms-2 m-auto">
+                    <c:if test="${member.status}">
+                        <p class="m-0">
+                            <c:out value="${member.name}"/>
+                            님 어서오세요!
+                        </p>
+                    </c:if>
+                </li>
+                <li class="nav-theme ms-2">
                     <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -162,8 +178,10 @@
                         </svg>
                     </a>
                 </li>
-                <li class="nav-user">
-                    <a class="nav-link icons" href="${pageContext.request.contextPath}/profile" tabindex="-1"
+                <li class="nav-user ms-1">
+                    <a class="nav-link icons" href="/profile"
+                       tabindex="-1"
+                       data-bs-toggle-theme="true"
                        data-bs-toggle="tooltip" data-bs-placement="bottom"
                        data-bs-title="Login"
                        aria-disabled="true">
@@ -175,8 +193,8 @@
                         </svg>
                     </a>
                 </li>
-                <li class="nav-cart">
-                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart" tabindex="-1"
+                <li class="nav-cart ms-1">
+                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
@@ -192,84 +210,102 @@
 <%--Nav--%>
 
 
+<div class="bg-image" style="background-image: url('../images/peer/03.jpeg'); height: 50vh;">
+    <div class="mask" style="background: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 1)
+  );">
+        <p class="d-flex pt-4 mt-5 ps-4 ms-5 text-white">
+            Peer Coffee Roasters
+        </p>
+        <h1 class="d-flex ps-4 ms-5 text-white" id="title-bold">
+            피어 커피 로스터스
+        </h1>
+        <footer class="pt-3 ps-4 ms-5 text-white blockquote-footer text-opacity-50">Established 2015
+            – Seoul.
+        </footer>
+        <p class="d-flex pt-4 ps-4 ms-5 text-white w-50">
+            피어 커피 로스터스는 Barista – Roaster – Designer가 함께 모여 저희 생각과 문화를 또 다른 피어들과 함께 공유하고 만들고 실험하는 공간
+            입니다.
+            단맛과 클린컵이 뛰어난 커피는 한잔을 더 마셔도 부담스럽지 않으며 피어커피 로스터스가 지향하는 "편하게 즐기는 스페셜티커피" 라는
+            목표에 다가갈수 있는 방법이라고 생각하고 있습니다.
+        </p>
+    </div>
+</div>
+<%--Header--%>
 
-<%-- Section: Design Block --%>
-<section class="text-center">
-    <%-- Background image --%>
-    <div class="p-5 bg-image object-cover " style="
-
-        background-image: url('../images/lowkey/swiper.jpg');
-        height: 91vh;
-        "></div>
-    <%-- Background image --%>
-    <div class="d-flex card mx-4 mx-md-5 shadow-5-strong align-items-center justify-content-md-center w-50 position-absolute"
-         style="
-        margin-top: -700px;
-        left: 22%;
-        background: hsla(0, 0%, 100%, 0.2);
-        backdrop-filter: blur(30px);
-        ">
-        <div class="card-body py-5 px-md-5 w-100 m-auto">
-            <div class="row d-flex align-items-center justify-content-center">
-                <div class="col-lg-8 ">
-                    <h2 class="fw-bold mb-5">- Login -</h2>
-                    <form class="needs-validation"
-                          action="${pageContext.request.contextPath}/login"
-                          method="post" novalidate>
-                        <%-- Email input --%>
-                        <div data-mdb-input-init class="form-outline mb-5 ">
-                            <input type="text" id="loginId" class="form-control" name="id"
-                                   required/>
-                            <label class="form-label" for="loginId">ID</label>
-                            <div class="invalid-feedback">ID를 입력해주세요</div>
+<%--Products--%>
+<div class="container-fluid">
+    <div class="row w-100 mb-5">
+        <div class="col mt-5 ms-1" style="width: 220px">
+            <div class="card mt-5">
+                <article class="card-group-item">
+                    <header class="card-header">
+                        <h6 class="title">Filter</h6>
+                    </header>
+                    <div class="filter-content">
+                        <div class="card-body">
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="productFilter" value="">
+                                <span class="form-check-label">Single Origin</span>
+                            </label>
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="productFilter" value="">
+                                <span class="form-check-label">Blend</span>
+                            </label>
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="productFilter" value="">
+                                <span class="form-check-label">Drip Bag</span>
+                            </label>
                         </div>
-                        <%-- Password input --%>
-                        <div data-mdb-input-init class="form-outline mb-5">
-                            <input type="password" id="loginPassword" class="form-control"
-                                   name="password"
-                                   required/>
-                            <label class="form-label" for="loginPassword">Password</label>
-                            <div class="invalid-feedback">Password를 입력해주세요</div>
-                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <%
+            ProductRepository repository = ProductRepository.getInstance();
+            List<Product> peerCoffeeProductList = repository.getProductByRoastery("PeerCoffee");
 
+        %>
+        <div class="col-10 mb-5">
+            <div class="row row-cols-auto g-4 mt-5">
+                <%
+                    for (Product product : peerCoffeeProductList) {
+                        request.setAttribute("productId", product.getProductId());
+                %>
+                <div class="col pd-col">
+                    <div class="card bg-image roaster-card-img bg-dark text-white hover-overlay hover-zoom" data-mdb-ripple-init
+                         data-mdb-ripple-color="#525740">
+                        <img src="<%= product.getImgPath().get(0)%>" class="card-img" alt="..." style="width: 350px">
+                        <div class="mask" style="background-color: hsla(0, 0%, 2%, 0.8)">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title"><%= product.getProductName() %>
+                                </h5> <br>
+                                <p class="card-text mb-5"><%=product.getProductDescription() %>
+                                </p> <br>
 
-                        <%-- 2 column grid layout for inline styling --%>
-                        <div class="row mb-4">
-                            <div class="col d-flex justify-content-center">
-                                <%-- Checkbox --%>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                           id="form2Example31" checked/>
-                                    <label class="form-check-label" for="form2Example31"> Remember
-                                        me </label>
-                                </div>
+                                <p class="card-text position-absolute bottom-0 start-0 ms-3 mb-3">
+                                    Cup Note : <br>
+                                    <%= product.getCupNote() %>
+                                </p>
                             </div>
-
-<%--                            <div class="col">
-                                &lt;%&ndash; Simple link &ndash;%&gt;
-                                <a href="#!">Forgot password?</a>
-                            </div>--%>
+                            <a href="${pageContext.request.contextPath}/content/productInfo.jsp?id=<%= product.getProductId()%> "
+                               class="stretched-link"></a>
                         </div>
-
-                        <%-- Submit button --%>
-                        <button type="submit"
-                                class="btn btn-primary btn-block mb-4 data-mdb-ripple-init">Sign in
-                        </button>
-
-                        <%-- Register buttons --%>
-                        <div class="text-center">
-                            <p>Not a member? <a href="./register.jsp">Register</a></p>
-                        </div>
-                    </form>
+                    </div>
                 </div>
+                <%
+                    }
+                %>
             </div>
         </div>
     </div>
-</section>
-<%-- Section: Design Block --%>
-
+</div>
+<%--Products--%>
 
 <%--Footer--%>
+
 <footer class="text-center text-lg-start bg-body-tertiary text-muted pt-5">
     <%-- Section: Links  --%>
     <section class="">
@@ -350,16 +386,12 @@
     <%-- Copyright --%>
 </footer>
 <%--Footer--%>
-<%--Script--%>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-
-</script>
+<%-- Script --%>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <script src="../js/day-night.js"></script>
+<script src="../js/navbar.js"></script>
 <script src="../js/swiper.js"></script>
-<script src="../js/form-validate.js"></script>
 
 <%-- MDB --%>
 <script
@@ -368,3 +400,5 @@
 ></script>
 </body>
 </html>
+
+`

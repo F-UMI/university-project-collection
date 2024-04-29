@@ -1,4 +1,6 @@
-<%--
+<%@ page import="org.hello.dbpproject.entity.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.hello.dbpproject.Repository.ProductRepository" %><%--
   Created by IntelliJ IDEA.
   User: USER
   Date: 2024-04-06
@@ -20,6 +22,9 @@
     <link rel='stylesheet' href='../css/bootstrap/bootstrap.css'>
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/index-page.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/roster-page.css">
+
     <link
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
             rel="stylesheet"
@@ -31,10 +36,13 @@
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
+
 </head>
-<body>
+<body style="overflow-x: hidden">
+<jsp:useBean id="member" class="org.hello.dbpproject.entity.Member" scope="session"/>
+<jsp:setProperty name="member" property="*"/>
 <%--Nav--%>
-<nav class="navbar navbar-expand-lg shadow sticky-top shadow-sm">
+<nav class="navbar navbar-expand-lg shadow sticky-top ">
     <div class="container-fluid">
         <a class="navbar-brand" href="./index.jsp">
             <img src="../images/logo.png" alt="Drips" width="64" height="60">
@@ -61,7 +69,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/lowkey/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top " alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -80,7 +88,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/pastel/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -99,7 +107,7 @@
                                     <div class="col-12 col-sm-4 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/peer/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -118,7 +126,7 @@
                                     <div class="col-12 col-sm-12 col-md-3 py-4">
                                         <div class="card">
                                             <img src="../images/heureum/logo.jpg"
-                                                 class="img-fluid" alt="image">
+                                                 class="img-fluid rounded-top" alt="image">
                                             <div class="card-body">
                                                 <figure>
                                                     <blockquote class="blockquote text-center py-2">
@@ -150,10 +158,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/content/addProduct.jsp">Add Product</a>
                 </li>
-
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-theme nav-item">
+                <li class="user-info ms-2 m-auto">
+                    <c:if test="${member.status}">
+                        <p class="m-0">
+                            <c:out value="${member.name}"/>
+                            님 어서오세요!
+                        </p>
+                    </c:if>
+                </li>
+                <li class="nav-theme ms-2">
                     <a class="nav-link icons" href="#" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -162,8 +177,10 @@
                         </svg>
                     </a>
                 </li>
-                <li class="nav-user">
-                    <a class="nav-link icons" href="${pageContext.request.contextPath}/profile" tabindex="-1"
+                <li class="nav-user ms-1">
+                    <a class="nav-link icons" href="/profile"
+                       tabindex="-1"
+                       data-bs-toggle-theme="true"
                        data-bs-toggle="tooltip" data-bs-placement="bottom"
                        data-bs-title="Login"
                        aria-disabled="true">
@@ -175,8 +192,8 @@
                         </svg>
                     </a>
                 </li>
-                <li class="nav-cart">
-                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart" tabindex="-1"
+                <li class="nav-cart ms-1">
+                    <a class="nav-link icons" href="${pageContext.request.contextPath}/cart" tabindex="-1" data-bs-toggle-theme="true"
                        aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
@@ -190,85 +207,54 @@
     </div>
 </nav>
 <%--Nav--%>
-
-
-
-<%-- Section: Design Block --%>
-<section class="text-center">
-    <%-- Background image --%>
-    <div class="p-5 bg-image object-cover " style="
-
-        background-image: url('../images/lowkey/swiper.jpg');
-        height: 91vh;
-        "></div>
-    <%-- Background image --%>
-    <div class="d-flex card mx-4 mx-md-5 shadow-5-strong align-items-center justify-content-md-center w-50 position-absolute"
-         style="
-        margin-top: -700px;
-        left: 22%;
-        background: hsla(0, 0%, 100%, 0.2);
-        backdrop-filter: blur(30px);
-        ">
-        <div class="card-body py-5 px-md-5 w-100 m-auto">
-            <div class="row d-flex align-items-center justify-content-center">
-                <div class="col-lg-8 ">
-                    <h2 class="fw-bold mb-5">- Login -</h2>
-                    <form class="needs-validation"
-                          action="${pageContext.request.contextPath}/login"
-                          method="post" novalidate>
-                        <%-- Email input --%>
-                        <div data-mdb-input-init class="form-outline mb-5 ">
-                            <input type="text" id="loginId" class="form-control" name="id"
-                                   required/>
-                            <label class="form-label" for="loginId">ID</label>
-                            <div class="invalid-feedback">ID를 입력해주세요</div>
-                        </div>
-                        <%-- Password input --%>
-                        <div data-mdb-input-init class="form-outline mb-5">
-                            <input type="password" id="loginPassword" class="form-control"
-                                   name="password"
-                                   required/>
-                            <label class="form-label" for="loginPassword">Password</label>
-                            <div class="invalid-feedback">Password를 입력해주세요</div>
-                        </div>
-
-
-                        <%-- 2 column grid layout for inline styling --%>
-                        <div class="row mb-4">
-                            <div class="col d-flex justify-content-center">
-                                <%-- Checkbox --%>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                           id="form2Example31" checked/>
-                                    <label class="form-check-label" for="form2Example31"> Remember
-                                        me </label>
-                                </div>
-                            </div>
-
-<%--                            <div class="col">
-                                &lt;%&ndash; Simple link &ndash;%&gt;
-                                <a href="#!">Forgot password?</a>
-                            </div>--%>
-                        </div>
-
-                        <%-- Submit button --%>
-                        <button type="submit"
-                                class="btn btn-primary btn-block mb-4 data-mdb-ripple-init">Sign in
-                        </button>
-
-                        <%-- Register buttons --%>
-                        <div class="text-center">
-                            <p>Not a member? <a href="./register.jsp">Register</a></p>
-                        </div>
-                    </form>
+<div class="container d-flex justify-content-center mt-5 mb-5">
+    <%
+        String id = request.getParameter("id");
+        ProductRepository productRepository = ProductRepository.getInstance();
+        Product product = productRepository.getProductById(id);
+    %>
+    <div class="row " style="width: 1200px">
+        <div class="col">
+            <img class="img-fluid img-thumbnail vw-100 vh-50 hover-shadow" src="<%= product.getImgPath().get(0)%>" alt="...">
+        </div>
+        <div class="col-7 border-top ms-5 position-relative">
+            <p class="mt-3 title-font">
+                <a href="/content/<%= product.getProductRoastery()%>.jsp" class="link-dark link-opacity-75 link-offset-2">
+                    <%= product.getProductRoastery()%>
+                </a>
+            </p>
+            <h3 class="mt-3 text-decoration-underline"><%=product.getProductName() %>
+            </h3>
+            <div class="mt-3 text-info"><%= product.getProductPrice() %> 원</div>
+            <div class="mt-2">Info : <%=product.getProductDescription()%>
+            </div>
+            <div class="mt-2">Cup Note : <%=product.getCupNote() %>
+            </div>
+            <div class="mt-2"><%= product.getProductCondition()%> <%=product.getProductCategory()%>
+            </div>
+            <form class="mt-3" action="${pageContext.request.contextPath}/addToCart" id="addToCart" method="post">
+                <div class="input-group" style="width: 100px">
+                    <%
+                        session.setAttribute("selectedProductId", product.getProductId());
+                    %>
+                    <input type="button" value="-" class="button-minus border border-black bg-black" data-field="quantity" style="width: 30px">
+                    <input type="number" class="form-control border-2 border-black text-center flex-grow-1" step="1" value="1" name="quantity">
+                    <input type="button" value="+" class="button-plus border border-black bg-black" data-field="quantity" style="width: 30px">
                 </div>
+            </form>
+            <div class="btn-group shadow-0 d-flex position-absolute bottom-0 start-0 mb-5 w-75 ms-2" role="group" aria-label="Basic example"
+                 style="height: 50px">
+                <button type="button" class="btn btn-outline-dark w-100" data-mdb-color="dark" data-mdb-ripple-init><p class="btn-text m-auto">
+                    구매하기</p></button>
+                <button type="submit" form="addToCart" class="btn btn-outline-dark w-100" data-mdb-color="dark" data-mdb-ripple-init><p
+                        class="btn-text m-auto">
+                    장바구니</p></button>
             </div>
         </div>
     </div>
-</section>
-<%-- Section: Design Block --%>
+</div>
 
-
+<%--Products--%>
 <%--Footer--%>
 <footer class="text-center text-lg-start bg-body-tertiary text-muted pt-5">
     <%-- Section: Links  --%>
@@ -350,17 +336,13 @@
     <%-- Copyright --%>
 </footer>
 <%--Footer--%>
-<%--Script--%>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-
-</script>
+<%-- Script --%>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src='../js/bootstrap.bundle.min.js'></script>
 <script src="../js/day-night.js"></script>
+<script src="../js/navbar.js"></script>
 <script src="../js/swiper.js"></script>
-<script src="../js/form-validate.js"></script>
-
+<script src="../js/quantity.js"></script>
 <%-- MDB --%>
 <script
         type="text/javascript"
@@ -368,3 +350,5 @@
 ></script>
 </body>
 </html>
+
+`

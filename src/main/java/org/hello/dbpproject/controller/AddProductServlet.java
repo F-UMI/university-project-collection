@@ -9,14 +9,13 @@ import java.io.IOException;
 import org.hello.dbpproject.service.MemberService;
 import org.hello.dbpproject.service.MemberServiceImpl;
 
-@WebServlet(description = "UpdateProfileServlet", urlPatterns = {"/update"})
-public class UpdateProfileServlet extends HttpServlet {
+@WebServlet(description = "AddProductServlet", urlPatterns = {"/addProduct"})
+public class AddProductServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
-
   private final MemberService memberService = new MemberServiceImpl();
 
-  public UpdateProfileServlet() {
+  public AddProductServlet() {
     super();
   }
 
@@ -26,8 +25,7 @@ public class UpdateProfileServlet extends HttpServlet {
   }
 
   @Override
-  protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    memberService.updateMemberInfo(req, res);
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    memberService.registrationProduct(request,response);
   }
 }
-    
